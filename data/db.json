@@ -1,0 +1,29 @@
+{
+    "user": [{
+            "nom": "simple",
+            "prenom": "Joueur",
+            "login": "jouer@gmail.com",
+            "password": "jour",
+            "profil": "PROFIL_JOUEUR",
+            "score": 15
+        },
+        {
+            "nom": "site",
+            "prenom": "Administrateur",
+            "login": "admin@gmail.com",
+            "password": "admin",
+            "profil": "PROFIL_JOUEUR",
+            "score": 0
+
+        }
+
+    ],
+
+    "questions": [{
+
+
+    }]
+
+
+
+}
