@@ -1,0 +1,146 @@
+* {
+    box-sizing: border-box;
+}
+
+header {
+    background-color: rgb(5, 10, 5);
+    padding: 1em;
+}
+
+header h1 {
+    text-align: center;
+    color: white;
+    font-size: 2.5em;
+}
+
+main {
+    /* background-color: rgb(185, 115, 250); */
+    background-image: url('../img/img-bg.jpg');
+    /* background-image: url(/home/souleymane/Documents/TPjavascript/validation/lion.jpg); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 98vh;
+    margin: 0%;
+    font-family: sans-serif;
+    /* background-size: cover; */
+    background-size: cover;
+}
+
+.conteneur {
+    background-color: white;
+    /* border-radius: 1em; */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    width: 35em;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.header {
+    background-color: #0eced4;
+    padding: 20px 40px;
+    border-bottom: 1px solid #901717;
+}
+
+.header h2 {
+    margin: 0;
+    /* text-align: center; */
+    color: white;
+}
+
+.form {
+    padding: 30px 40px;
+}
+
+.form-controle {
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+    position: relative;
+}
+
+.form-controle label {
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+.form-controle input {
+    border: 2px solid #f0f0f0;
+    border-radius: 4px;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    font-family: inherit;
+    /* border: hidden; */
+}
+
+.form-controle i {
+    position: absolute;
+    top: 40px;
+    right: 10px;
+    visibility: hidden;
+}
+
+.form-controle small {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    visibility: hidden;
+}
+
+.form button {
+    background-color: #0eced4;
+    /* border: 2px solid #c83510; */
+    color: white;
+    width: 30%;
+    /* display: block; */
+    padding: 10px;
+    font-size: 16px;
+    font-family: inherit;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form-controle.succes input {
+    border-color: rgb(16, 184, 24);
+}
+
+.form-controle.error input {
+    border-color: rgb(216, 19, 52);
+    visibility: visible;
+}
+
+.form-controle.error small {
+    visibility: visible;
+    color: red;
+}
+
+.form-controle.error i.fa-exclamation-circle {
+    color: red;
+    visibility: visible;
+}
+
+.form-controle.succes i.fa-check-circle {
+    color: green;
+    visibility: visible;
+}
+
+
+/* ************************************ */
+
+.form-controle i.fa-solid.fa-user {
+    position: absolute;
+    top: 40px;
+    right: 10px;
+    visibility: visible;
+}
+
+
+/* *********************************************** */
+
+.form-controle i.fa-solid.fa-lock {
+    position: absolute;
+    top: 40px;
+    right: 10px;
+    visibility: visible;
+}

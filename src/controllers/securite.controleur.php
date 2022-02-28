@@ -1,8 +1,9 @@
 <?php
 
 // Le controleur charge le model
-require_once(DOSSIER_SRC."models".DIRECTORY_SEPARATOR.user.model.php );
+require_once(DOSSIER_SRC."models".DIRECTORY_SEPARATOR."user.model.php" );
 // Avec une requete POST generalemnt on charge les données d'un formulaire
+// die("Hello");
 
 // Verification du type de requete
 if ($_SERVER["REQUEST_METHOD"]=="POST") {
@@ -46,7 +47,10 @@ if ($_SERVER["REQUEST_METHOD"]=="GET") {
         $action=$_REQUEST["action"];
         switch ($action) {
             case 'connexion':
-                echo("Je veux me connecter");
+                // echo("Je veux me connecter");
+                // Chargement de la page connexion
+                require_once(DOSSIER_TEMPLATES."securite".DIRECTORY_SEPARATOR."connexion.html.php");
+
                 break;
 
                 case 'deconnexion':
@@ -59,7 +63,9 @@ if ($_SERVER["REQUEST_METHOD"]=="GET") {
         }
     
 }else {
-    echo("Bienvenue dans la page de connexion");
+    // echo("Bienvenue dans la page de connexion");
+    require_once(DOSSIER_TEMPLATES."securite".DIRECTORY_SEPARATOR."connexion.html.php");
+
     
 }
 }
@@ -87,11 +93,29 @@ function connexion(string $login,string $password):void{
         // Appel d'une fonction models
         $user=correspondance_login_password($login,$password);
 
+        // l'existence de l'utilisateur
+        if (count($user)!=0) {
+           $_SESSION[CLE_USER_CONNECT ]=$user;
+// Si la connexion s'est bien passé redirection vers la page d'accueil
+         header("location:".WEB_ROOT."?controleur=user&action=accueil"); 
+         exit();  
+
+
+
+        }else {
+       $errors['Erreur']="Login ou mot de passe incorrect";
+            $_SESSION[CLE_ERREURS]=$errors;
+            header("location:".WEB_ROOT);
+            //    Arrete la redirection
+               exit();
+           
+        }
+
     }
 
     else {
         // Senarios d'alternance \\Erreur de validation
-       $_SESSION['errors']=$errors;
+       $_SESSION[CLE_ERREURS]=$errors;
        header("location:".WEB_ROOT);
     //    Arrete la redirection
        exit();

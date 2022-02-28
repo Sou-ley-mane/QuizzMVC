@@ -1,6 +1,8 @@
 <?php
+
 // Verification de l'existence du controleur
 if (isset($_REQUEST['controleur'])) {
+
     // Recuperation du controleur en cas d'existence
     $controleur=$_REQUEST['controleur'];
 // Selection du type de controleur par le router
@@ -18,6 +20,7 @@ if (isset($_REQUEST['controleur'])) {
     }
 
 } else {
+
     // Par défaut on charge le controleur secirite
     require_once(DOSSIER_SRC."controllers".DIRECTORY_SEPARATOR."securite.controleur.php");   
 }

@@ -31,14 +31,12 @@ if ($_SERVER["REQUEST_METHOD"]=="GET") {
         // L'action a executer
         $action=$_REQUEST["action"];
         switch ($action) {
-            case 'connexion':
-                echo("Bienvenue au jeu");
+            case 'accueil':
+                // echo("Bienvenue au jeu");
+                // Chargement de la page Accueil
+                require_once(DOSSIER_TEMPLATES."user".DIRECTORY_SEPARATOR."accueil.html.php");
                 break;
 
-                case 'deconnexion':
-                    echo("J'ai gagné");
-                    break;
-            
             default:
                 # code...
                 break;
