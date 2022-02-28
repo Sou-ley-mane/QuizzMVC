@@ -1,6 +1,9 @@
 <?php
 // FRONT CONTROLEUR DE NOTRE PROJET
-
+// Chargement de la session
+if (session_status()==PHP_SESSION_NONE) {
+session_start();
+}
 // CHARGEMENT DES FICHIERS DE CONFIGURATION
 // Charegement Des constantes
 // require_once(dirname(dirname( __FILE__))."/config/constantes.php");

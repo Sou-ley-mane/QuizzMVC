@@ -16,5 +16,5 @@ define("DOSSIER_DATA",RACINE."data".DIRECTORY_SEPARATOR."db.json");
 define("DOSSIER_PUBLIC",str_replace("index.php","",$_SERVER['SCRIPT_NAME']));
 
 // Chemin sur l'action des formulaires \\ Requetes GET et POST
-define("PATH_POST","http://localhost:81 ");
+define("WEB_ROOT","http://localhost:81 ");
 
