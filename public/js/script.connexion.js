@@ -25,7 +25,6 @@ function recuperer() {
     // *************************************************************************
     if (valeurpassword === "") {
         afficheErreur(password, "Mot de passe est obligatoire")
-
     } else {
         afficheSucess(password)
 

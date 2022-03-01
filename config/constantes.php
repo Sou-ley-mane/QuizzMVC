@@ -16,13 +16,15 @@ define("DOSSIER_DATA",RACINE."data".DIRECTORY_SEPARATOR."db.json");
 
 // Chemin vers le dossier public pour charger les images /CSS 
 define("DOSSIER_PUBLIC",str_replace("index.php","",$_SERVER['SCRIPT_NAME']));
-
+// var_dump(DOSSIER_PUBLIC);
 
 // Chemin sur l'action des formulaires \\ Requetes GET et POST
-define("WEB_ROOT","http://localhost:81");
+// define("WEB_ROOT","http://localhost:81");
+define("WEB_ROOT","http://localhost:81/QuizzMVC/public/");
+// var_dump(WEB_ROOT);
 
 // Constante pour gerer les messages d'erreurs (Cle d'erreur)
-define("CLE_ERREURS","erreur");
+define("CLE_ERREURS","errors");
 
 // Cle pour stocker l'utilisateur connecté
 define("CLE_USER_CONNECT","user-connect");

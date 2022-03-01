@@ -1,0 +1,22 @@
+header {
+    background: #000000;
+    padding: 2em 1em;
+    /* text-align: center; */
+    /* background-color: red; */
+}
+
+header nav {
+    display: inline;
+}
+
+header a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 5px;
+    margin-right: 2em;
+}
+
+header nav a:hover {
+    background: #04baf6;
+    padding: 2em;
+}

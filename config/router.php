@@ -1,12 +1,13 @@
 <?php
 
 // Verification de l'existence du controleur
+// var_dump($_REQUEST['controleur']);die;
 if (isset($_REQUEST['controleur'])) {
 
     // Recuperation du controleur en cas d'existence
-    $controleur=$_REQUEST['controleur'];
+    
 // Selection du type de controleur par le router
-    switch ($controleur) {
+    switch ($_REQUEST['controleur']) {
         case 'securite':
             require_once(DOSSIER_SRC."controllers".DIRECTORY_SEPARATOR."securite.controleur.php");
             break;

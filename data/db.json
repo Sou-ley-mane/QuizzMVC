@@ -2,8 +2,8 @@
     "user": [{
             "nom": "Diallo",
             "prenom": "Souleymane",
-            "login": "jouer@gmail.com",
-            "password": "jour",
+            "login": "diallosouley337@gmail.com",
+            "password": "admin",
             "profil": "PROFIL_JOUEUR",
             "score": 15
         },

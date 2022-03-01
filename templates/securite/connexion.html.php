@@ -1,17 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?= DOSSIER_PUBLIC."css".DIRECTORY_SEPARATOR."style.connexion.css"?>">
-    <script src="https://kit.fontawesome.com/2fcb5cccd1.js" defer crossorigin="anonymous"></script>
-
-    <title>Validation</title>
-</head>
-
-<body>
+    $errors[];
     <header>
         <h1>Le plaisir de jouer</h1>
     </header>
@@ -20,12 +7,16 @@
         <div class="header">
             <h2>Login form</h2>
         </div>
-        <form action="" class="form" id="form">
-           
+        <form action="<?= WEB_ROOT?>" class="form" id="form" method="POST">
+        <!-- Champ cachés -->
+        <!-- Champ pour gerer le controleur -->
+        <input type="hidden" name="controleur" value="securite">
+        <!-- Champ pour gerer les actions -->
+        <input type="hidden" name="action" value="connexion">
 
             <div class="form-controle">
                 <label for="utilisateur">Utilisateur</label>
-                <input type="email" placeholder="votre email" id="email">
+                <input type="email" placeholder="votre email" id="email" name="login">
                 <i class="fa-solid fa-user"></i>
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
@@ -34,25 +25,17 @@
 
             <div class="form-controle">
                 <label for="utilisateur">Mot de passe</label>
-                <input type="password" placeholder="votre mot de passe" id="password">
+                <input type="password" placeholder="votre mot de passe" name="password" id="password">
                 <i class="fa-solid fa-lock"></i>
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
                 <small>Message d'erreur</small>
             </div>
 
-
-
-  
-
-
-            <button type="button" id="bouton">Connexion</button>
+            <button type="submit" id="bouton">Connexion</button>
 
         </form>
 
-    </div>
-    <script src="<?= DOSSIER_PUBLIC."js".DIRECTORY_SEPARATOR."script.connexion.js"?>"></script>
-    </main>
-</body>
 
-</html>
+
+   

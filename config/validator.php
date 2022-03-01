@@ -9,7 +9,7 @@ $errors[$cle]=$message;
 // ***********************************************************************************
 function valid_email(string $cle,string $donnees,array &$errors,string $message="email
 invalid"){
-if(!filter_var($data,FILTER_VALIDATE_EMAIL)){
+if(!filter_var($donnees,FILTER_VALIDATE_EMAIL)){
 $errors[$cle]=$message;
 }
 }
@@ -17,7 +17,7 @@ $errors[$cle]=$message;
 // ********************************A FAIRE *********************************
 function valid_password(string $cle,string $donnees,array &$errors,string $message="mot de passe
 invalid"){
-if(!filter_var($data,FILTER_VALIDATE_EMAIL)){
+if(!filter_var($donnees,FILTER_VALIDATE_EMAIL)){
 $errors[$cle]=$message;
 }
 }
