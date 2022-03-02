@@ -1,4 +1,12 @@
-    $errors[];
+<?php
+if (isset($_SESSION['errors'])) {
+    
+    $errors=$_SESSION['errors'];
+
+ unset($_SESSION['errors']);
+
+}
+?>
     <header>
         <h1>Le plaisir de jouer</h1>
     </header>
@@ -7,12 +15,17 @@
         <div class="header">
             <h2>Login form</h2>
         </div>
+         
         <form action="<?= WEB_ROOT?>" class="form" id="form" method="POST">
         <!-- Champ cachés -->
         <!-- Champ pour gerer le controleur -->
         <input type="hidden" name="controleur" value="securite">
         <!-- Champ pour gerer les actions -->
         <input type="hidden" name="action" value="connexion">
+       <!-- Les erreurs en php -->
+       <?php if (isset($errors['connexion'])):?>   
+                    <p style="color:red"> <?= $errors['connexion'] ?></p>
+                    <?php endif ?>
 
             <div class="form-controle">
                 <label for="utilisateur">Utilisateur</label>
@@ -21,6 +34,11 @@
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
                 <small>Message d'erreur</small>
+                
+                <!-- Validation php -->
+                <?php if (isset($errors['login'])):?> 
+                    <p style="color:red"> <?= $errors['login'] ?></p>
+                <?php endif ?>
             </div>
 
             <div class="form-controle">
@@ -30,6 +48,11 @@
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
                 <small>Message d'erreur</small>
+                <!-- Validation php -->
+                <?php if (isset($errors['password'])){?>
+            <p style="color:red"> <?=$errors['password']
+ ?></p>
+            <?php } ?>
             </div>
 
             <button type="submit" id="bouton">Connexion</button>

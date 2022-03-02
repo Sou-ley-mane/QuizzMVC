@@ -22,11 +22,12 @@ require_once dirname(dirname(__FILE__)).DIRECTORY_SEPARATOR."config".DIRECTORY_S
 // Chargement du fichier role pour gererles profils
 require_once dirname(dirname(__FILE__)).DIRECTORY_SEPARATOR."config".DIRECTORY_SEPARATOR."role.php";
 // **********************************************************************************
- require_once(DOSSIER_TEMPLATES."include".DIRECTORY_SEPARATOR."haut.inc.html.php");
+require_once(DOSSIER_TEMPLATES."include".DIRECTORY_SEPARATOR."haut.inc.html.php");
+
 // Chargement du router pour la redirection vers les controleurs
 require_once dirname(dirname(__FILE__)).DIRECTORY_SEPARATOR."config".DIRECTORY_SEPARATOR."router.php";
- require_once(DOSSIER_TEMPLATES."include".DIRECTORY_SEPARATOR."bas.inc.html.php");
 
+require_once(DOSSIER_TEMPLATES."include".DIRECTORY_SEPARATOR."bas.inc.html.php");
 
 
 

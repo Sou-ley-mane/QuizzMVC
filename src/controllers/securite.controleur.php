@@ -30,6 +30,12 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
     }
 
     
+}else {
+    
+    // echo("Bienvenue dans la page de connexion");
+    require_once(DOSSIER_TEMPLATES."securite".DIRECTORY_SEPARATOR."connexion.html.php");
+
+    
 }
 
 // *************************************************************************
@@ -47,6 +53,12 @@ if ($_SERVER["REQUEST_METHOD"]=="GET") {
                 require_once(DOSSIER_TEMPLATES."securite".DIRECTORY_SEPARATOR."connexion.html.php");
 
                 break;
+
+                case 'deconnexion':
+                // Fonctoin pour deconnecter l'utilisateur
+                   deconnecter();
+    
+                    break;
 
    
             default:
@@ -70,7 +82,7 @@ function connexion(string $login,string $password):void{
   
     $errors=[];
     // la cle correspond au name du formulaire
-    champ_obligatoire('login',$login,$errors,$message="Login obligatoire");
+    champ_obligatoire('login',$login,$errors,$message="le  Login est  obligatoire");
 
 // on compte le nombre d'erreur
     if (count($errors)==0) {
@@ -84,7 +96,7 @@ function connexion(string $login,string $password):void{
     // ***********************************************************
     champ_obligatoire('password',$password,$errors,$message="Mot de passe obligatoire");
 
-    if (count($errors)==0) {
+    if (count($errors)==0) {    
       // valid_password('password',$password,$message);  
         // Appel d'une fonction models
         $user=correspondance_login_password($login,$password);
@@ -92,19 +104,24 @@ function connexion(string $login,string $password):void{
         // var_dump($user);die;
         // l'existence de l'utilisateur
         if (count($user)!=0) {
+            
             // die("if");
-           $_SESSION[CLE_USER_CONNECT]=$user;
+           $_SESSION['user']=$user;
         //    die("Bienvenue sue la page d'accueil");
-        //    *******************************A continuer**************
-        //    require_once();
+
            header("Location:".WEB_ROOT."?controleur=user&action=accueil");
 
 // Si la connexion s'est bien passé redirection vers la page d'accueil
          
         }else {
             // die("else");
-       $errors[CLE_ERREURS]="Login ou mot de passe incorrect";
-            $_SESSION[CLE_ERREURS]=$errors;
+       $errors['connexion']="Login ou mot de passe incorrect";
+
+            $_SESSION['errors']=$errors;
+
+            
+           
+           
 // die("vos donnees ne son pas valides");
             header("location:".WEB_ROOT);
             //    Arrete la redirection
@@ -115,13 +132,23 @@ function connexion(string $login,string $password):void{
     }
 
     else {
-
         // Senarios d'alternance \\Erreur de validation
-       $_SESSION[CLE_ERREURS]=$errors;
+       $_SESSION['errors']=$errors;
+   
+
        header("location:".WEB_ROOT);
     //    Arrete la redirection
        exit();
     }
 
+
+}
+
+// Fonction deconnexion
+function deconnecter(){
+    session_destroy();
+    session_unset();
+    header("location:".WEB_ROOT);
+    exit();
 
 }
