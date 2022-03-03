@@ -72,7 +72,7 @@
 
 .lister {
     background-color: white;
-    color: white;
+    color: rgb(17, 8, 8);
     border: 9px solid rgb(238, 230, 230);
     width: 50%;
     border-radius: 10px;
@@ -98,3 +98,9 @@ a:hover {
 .logo {
     height: 15vh;
 }
+
+
+/* margin-left:40%; */
+
+
+/* **************** */

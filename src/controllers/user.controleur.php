@@ -39,13 +39,20 @@ require_once(DOSSIER_SRC."models".DIRECTORY_SEPARATOR."user.model.php" );
 
             switch ( $_REQUEST["action"]) {
                 case 'accueil':
-                    // Chargement de la page Accueil
-                    require_once(DOSSIER_TEMPLATES."user".DIRECTORY_SEPARATOR."accueil.html.php");
+                    if (Administrateur()) {
+                        listeJoueur(); 
+
+                    }elseif (Joueur()) {
+
+                        jeu();
+                    // die("okkkk");
+
+                    }
                     break;
 
-                    case 'liste.Joueur':
-                        listeJoueur();
-                        break;
+                    // case 'liste.Joueur':
+                    //     listeJoueur();
+                    //     break;
                 default:
                     # code...
                     break;
@@ -59,15 +66,41 @@ require_once(DOSSIER_SRC."models".DIRECTORY_SEPARATOR."user.model.php" );
 
         // Liste des joueurs
         function listeJoueur(){
+            // chargement temporaire du contenu d'un fichier
+            ob_start();
             // Appel du model
             $donnees=listeDesUtilisateurs("PROFIL_JOUEUR");
-            // var_dump($donnees);die;
-// var_dump($donnees);
             // Chargement de la vue
             require_once(DOSSIER_TEMPLATES."user".DIRECTORY_SEPARATOR."Liste.joueurs.html.php");
+            $contenu_vues=ob_get_clean();
+            require_once(DOSSIER_TEMPLATES."user".DIRECTORY_SEPARATOR."accueil.html.php");
 
-            // die("ok");
+        }
+        // *************************************
+        function LesQuestion(){
+            // chargement temporaire du contenu d'un fichier
+            ob_start();
+            // Appel du model
+            $donnees=listeDesQuestion("questions");
+            // Chargement de la vue
+            require_once(DOSSIER_TEMPLATES."user".DIRECTORY_SEPARATOR."Liste.joueurs.html.php");
+            $contenu_vues=ob_get_clean();
+            require_once(DOSSIER_TEMPLATES."user".DIRECTORY_SEPARATOR."accueil.html.php");
+
+        }
 
 
+        // ***********************
+
+
+        function jeu(){
+            // chargement temporaire du contenu d'un fichier
+            ob_start();
+            // Appel du model
+            // $donnees=listeDesUtilisateurs("PROFIL_JOUEUR");
+            // Chargement de la vue
+            require_once(DOSSIER_TEMPLATES."user".DIRECTORY_SEPARATOR."jeu.html.php");
+            $contenu_vues=ob_get_clean();
+            require_once(DOSSIER_TEMPLATES."user".DIRECTORY_SEPARATOR."accueil.html.php");
 
         }

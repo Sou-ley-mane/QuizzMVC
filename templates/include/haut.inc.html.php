@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?= DOSSIER_PUBLIC."css".DIRECTORY_SEPARATOR."style.connexion.css"?>">
     <link rel="stylesheet" href="<?= DOSSIER_PUBLIC."css".DIRECTORY_SEPARATOR."style.accueil.css"?>">
+    <link rel="stylesheet" href="<?= DOSSIER_PUBLIC."css".DIRECTORY_SEPARATOR."style.liste.joueur.css"?>">
+
 
     <script src="https://kit.fontawesome.com/2fcb5cccd1.js" defer crossorigin="anonymous"></script>
 

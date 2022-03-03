@@ -21,9 +21,9 @@ function recuperer() {
     // *******************************
     if (valeurEmail === "") {
         afficheErreur(email, "Veillez saisir votre email")
-    } else {
-        afficheSucess(email)
-    }
+    } else if (valeurEmail != "") {
+        ValidateEmail(email);
+    } else {}
 }
 
 // *******************************LES FONCTIONS********************************************
@@ -43,6 +43,26 @@ function afficheSucess(input) {
     formControl.className = 'form-controle succes';
 
 }
+// Fonction de validation de mail front
+function ValidateEmail(inputText) {
+    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if (inputText.value.match(mailformat)) {
+        afficheSucess(email)
+            // email.focus();
+        return true;
+    } else {
+        afficheErreur(email, "le format de votre email est invalide")
+            // email.focus();
+        return false;
+    }
+}
+
+
+
+
+
+
+
 
 // Evenement 
 bouton.addEventListener('click', (e) => {

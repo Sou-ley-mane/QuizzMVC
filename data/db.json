@@ -181,9 +181,32 @@
 
 
     "questions": [{
+            "question": "Quel est meilleur language de programmation en 2022",
+            "a": "Java",
+            "b": "C",
+            "c": "Python",
+            "d": "javascrpt",
+            "correct": "a"
+        },
+        {
+            "question": "Qui est le premier president du sénégal",
+            "a": "Macky Sall",
+            "b": "Abdou Diouf",
+            "c": "Leopol  senghor",
+            "d": "Abdoulaye Wade",
+            "correct": "a"
 
+        },
+        {
+            "question": "Qui est Sadio mané ",
+            "a": "Footballeur",
+            "b": "Chanteur",
+            "c": "Cultivateur",
+            "d": "informaticein",
+            "correct": "a"
 
-    }]
+        }
+    ]
 
 
 

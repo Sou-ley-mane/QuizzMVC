@@ -29,7 +29,7 @@ if (isset($_SESSION['errors'])) {
 
             <div class="form-controle">
                 <label for="utilisateur">Utilisateur</label>
-                <input type="email" placeholder="votre email" id="email" name="login">
+                <input type="text" placeholder="votre email" id="email" name="login">
                 <i class="fa-solid fa-user"></i>
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
@@ -60,7 +60,8 @@ if (isset($_SESSION['errors'])) {
             <!-- <button type="submit" id=""</button> -->
 
 
-         
+   
+         <script src="<?= DOSSIER_PUBLIC."js".DIRECTORY_SEPARATOR."script.connexion.js"?>"></script>
 
 
         </form>

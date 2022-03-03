@@ -26,3 +26,15 @@ function correspondance_login_password(string $login,string $password):array{
         }
 return $liste;
     }
+
+
+    // fonction liste des questions
+    // Fonction pour lister les utilisateurs
+    function listeDesQuestion(string $cle):array{
+        $Questions=chaine_en_tableau($cle);
+        $liste=[];
+        foreach ( $Questions as $question) {
+             $liste[]=$question;
+            }
+return $liste;
+    }
