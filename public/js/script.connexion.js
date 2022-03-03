@@ -15,6 +15,9 @@ function recuperer() {
         // *************************************************************************
     if (valeurpassword === "") {
         afficheErreur(password, "Mot de passe est obligatoire")
+    } else if (valeurpassword != "") {
+        // alert("non");
+        validMotPasse(password);
     } else {
         afficheSucess(password)
     }
@@ -55,6 +58,22 @@ function ValidateEmail(inputText) {
             // email.focus();
         return false;
     }
+}
+
+
+// Fonction pour valider le password
+function validMotPasse(input) {
+    var formPassword = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
+    if (input.value.match(formPassword)) {
+        afficheSucess(password);
+        return true;
+
+    } else {
+        afficheErreur(password, "le format de votre password est invalide")
+            // email.focus();
+        return false;
+    }
+
 }
 
 
