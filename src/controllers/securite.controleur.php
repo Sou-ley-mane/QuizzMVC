@@ -9,14 +9,13 @@ require_once(DOSSIER_SRC."models".DIRECTORY_SEPARATOR."user.model.php" );
 if ($_SERVER["REQUEST_METHOD"]=="POST") {
     // echo("La requete est de type POST");
     if (isset($_REQUEST["action"])) {
-        // L'action a executer
-
         switch ($_REQUEST["action"]) {
             case 'connexion':
                 // Recuperation des données du user
                 $login=$_POST['login'];
                 $password=$_POST['password'];
                 // Appel de la fonction connexion
+                
                 connexion($login,$password);
                 // echo("Je veux me connecter");
                 break;
@@ -48,11 +47,18 @@ if ($_SERVER["REQUEST_METHOD"]=="GET") {
         // L'action a executer
         switch ($_REQUEST["action"]) {
             case 'connexion':
-                // echo("Je veux me connecter");
+                
                 // Chargement de la page connexion
                 require_once(DOSSIER_TEMPLATES."securite".DIRECTORY_SEPARATOR."connexion.html.php");
 
                 break;
+
+                case 'inscription':
+                // header("location:".DOSSIER_TEMPLATES."securite".DIRECTORY_SEPARATOR."inscription.html.php");
+                    // Chargement de la page connexion
+                    require_once(DOSSIER_TEMPLATES."securite".DIRECTORY_SEPARATOR."inscription.html.php");
+    
+                    break;
 
                 case 'deconnexion':
                 // Fonctoin pour deconnecter l'utilisateur
@@ -79,15 +85,12 @@ if ($_SERVER["REQUEST_METHOD"]=="GET") {
 // Creation de la fonction connexion
 function connexion(string $login,string $password):void{
     // validation des données qui est gerer par le validator 
-  
     $errors=[];
     // la cle correspond au name du formulaire
     champ_obligatoire('login',$login,$errors,$message="le  Login est  obligatoire");
-
 // on compte le nombre d'erreur
     if (count($errors)==0) {
         // die("Hello");
-
         // est ce que login==email
         valid_email('login',$login,$errors);   
     }

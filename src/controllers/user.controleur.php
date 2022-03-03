@@ -51,10 +51,7 @@ require_once(DOSSIER_SRC."models".DIRECTORY_SEPARATOR."user.model.php" );
                     break;
             }
         
-        // L'action a executer
-                // $_REQUEST["action"];
-            
-            
+    
         }
 
         }

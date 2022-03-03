@@ -1,22 +1,100 @@
-header {
-    background: #000000;
-    padding: 2em 1em;
-    /* text-align: center; */
-    /* background-color: red; */
+.entete1 {
+    background-color: rgb(20, 42, 42);
+    color: white;
+    height: 8em;
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
 }
 
-header nav {
-    display: inline;
+.entete1 h1 {
+    margin-right: 12em;
 }
 
-header a {
-    color: #ffffff;
+.entete {
+    background-color: aqua;
+    /* display: inline; */
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    height: 8em;
+    margin: 1em;
+}
+
+.btn {
+    padding: 0em 5em;
+    margin: 3em;
+    background-color: rgb(41, 214, 206);
+}
+
+.profil {
+    background-color: aqua;
+    display: flex;
+    justify-content: space-evenly;
+    /* color: white; */
+}
+
+.formulaire {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.formulaire a {
+    margin: 2em;
+    display: flex;
+    justify-content: space-between;
+    /* font-size: 1em; */
     text-decoration: none;
-    padding: 5px;
-    margin-right: 2em;
+    color: gray;
+    font-weight: bold;
 }
 
-header nav a:hover {
-    background: #04baf6;
-    padding: 2em;
+.contenu {
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    /* background-color: rgb(212, 206, 199); */
+    height: 80vh;
+    margin: 1em;
+}
+
+.icone-form {
+    background-color: rgb(238, 230, 230);
+    width: 30%;
+    height: 75%;
+    /* margin: 2em; */
+    margin-top: 5em;
+    border: 9px solid rgb(238, 230, 230);
+    /* border-left: rgb(238, 230, 230); */
+}
+
+.lister {
+    background-color: white;
+    color: white;
+    border: 9px solid rgb(238, 230, 230);
+    width: 50%;
+    border-radius: 10px;
+}
+
+.photo {
+    height: 10vh;
+    width: 20%;
+    border-radius: 10em;
+    margin: 1em;
+    border: 9px solid rgb(23, 174, 194);
+}
+
+.ok {
+    width: 8%;
+}
+
+a:hover {
+    background-color: rgb(211, 201, 201);
+    padding: 0.5em;
+}
+
+.logo {
+    height: 15vh;
 }

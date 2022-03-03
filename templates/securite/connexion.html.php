@@ -56,6 +56,12 @@ if (isset($_SESSION['errors'])) {
             </div>
 
             <button type="submit" id="bouton">Connexion</button>
+            <a class="inscrit" href="">S'inscrire</a>
+            <!-- <button type="submit" id=""</button> -->
+
+
+         
+
 
         </form>
 
