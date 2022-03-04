@@ -99,9 +99,11 @@ function connexion(string $login,string $password):void{
     // ***********************************************************
     champ_obligatoire('password',$password,$errors,$message="Mot de passe obligatoire");
 
-    if (count($errors)==0) {    
-      // valid_password('password',$password,$message);  
-        // Appel d'une fonction models
+    if (count($errors)==0) {   
+    //   valid_password('password',$password,$errors);  
+       
+
+        
         $user=correspondance_login_password($login,$password);
 // var_dump($user);die;
         // var_dump($user);die;

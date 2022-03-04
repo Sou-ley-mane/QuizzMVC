@@ -11,7 +11,7 @@
             "nom": "Diallo",
             "prenom": "Saifoulaye",
             "login": "admin@gmail.com",
-            "password": "admin",
+            "password": "admin22",
             "profil": "PROFIL_ADMIN",
             "score": 0
 
@@ -172,7 +172,7 @@
             "nom": "Ndiaye",
             "prenom": "Mayacine",
             "login": "jouer@gmail.com",
-            "password": "jour",
+            "password": "jouEur44",
             "profil": "PROFIL_JOUEUR",
             "score": 15
         }

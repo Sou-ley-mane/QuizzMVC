@@ -61,7 +61,6 @@ if (isset($_SESSION['errors'])) {
 
 
    
-         <script src="<?= DOSSIER_PUBLIC."js".DIRECTORY_SEPARATOR."script.connexion.js"?>"></script>
 
 
         </form>

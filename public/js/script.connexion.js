@@ -8,25 +8,36 @@ const email = document.getElementById("email");
 
 // Fonction pour recupérer les valeurs des champs
 function recuperer() {
+    var valid = true;
     // const valeurUser = user.value.trim()
     const valeurpassword = password.value.trim()
     const valeurEmail = email.value.trim()
         // const valeurpassword2 = password2.value.trim()
         // *************************************************************************
     if (valeurpassword === "") {
-        afficheErreur(password, "Mot de passe est obligatoire")
-    } else if (valeurpassword != "") {
-        // alert("non");
-        validMotPasse(password);
+        afficheErreur(password, "Veillez saisir votre password")
+            // alert("non");
+        valid = false;
     } else {
-        afficheSucess(password)
+        valid = validMotPasse(password);
     }
-    // *******************************
+
+
+
+    // // *******************************
     if (valeurEmail === "") {
         afficheErreur(email, "Veillez saisir votre email")
-    } else if (valeurEmail != "") {
-        ValidateEmail(email);
-    } else {}
+        valid = false;
+    } else {
+        valid = ValidateEmail(email);
+    }
+
+    return valid;
+    // ****************************************************************
+    // if (validMotPasse(password) == true && ValidateEmail(email) == true) {
+    //     return true;
+    // }
+
 }
 
 // *******************************LES FONCTIONS********************************************
@@ -38,12 +49,15 @@ function afficheErreur(input, message) {
     small.innerText = message;
     // La classe erreur
     formControl.className = 'form-controle error';
+    return false;
 }
 
 // Affiche succes
 function afficheSucess(input) {
     const formControl = input.parentElement;
     formControl.className = 'form-controle succes';
+    return true;
+
 
 }
 // Fonction de validation de mail front
@@ -51,13 +65,15 @@ function ValidateEmail(inputText) {
     var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if (inputText.value.match(mailformat)) {
         afficheSucess(email)
-            // email.focus();
+
         return true;
     } else {
-        afficheErreur(email, "le format de votre email est invalide")
-            // email.focus();
+        afficheErreur(email, "le format de votre email est invalide");
+        // email.focus();
         return false;
     }
+
+
 }
 
 
@@ -65,12 +81,13 @@ function ValidateEmail(inputText) {
 function validMotPasse(input) {
     var formPassword = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
     if (input.value.match(formPassword)) {
+
         afficheSucess(password);
         return true;
 
     } else {
-        afficheErreur(password, "le format de votre password est invalide")
-            // email.focus();
+        afficheErreur(password, "password est invalide")
+
         return false;
     }
 
@@ -85,8 +102,12 @@ function validMotPasse(input) {
 
 // Evenement 
 bouton.addEventListener('click', (e) => {
-    // A vérifier sur le net
-    e.preventDefault();
+    if (!recuperer()) {
+        e.preventDefault();
+    }
 
-    recuperer();
+
+    // A vérifier sur le net
+    // recuperer();
+
 });
