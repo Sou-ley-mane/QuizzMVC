@@ -81,7 +81,7 @@
 .photo {
     height: 10vh;
     width: 20%;
-    border-radius: 10em;
+    border-radius: 50%;
     margin: 1em;
     border: 9px solid rgb(23, 174, 194);
 }

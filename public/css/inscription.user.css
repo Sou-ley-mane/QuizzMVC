@@ -1,0 +1,64 @@
+.title h3 {
+    color: rgb(112, 112, 42);
+}
+
+.title h1 {
+    color: gray;
+}
+
+.title {
+    border-bottom: 2px solid rgb(112, 112, 42);
+    margin: 2em;
+}
+
+.inscrire {
+    display: flex;
+    /* border: 3px solid red; */
+    height: 80vh;
+    justify-content: space-evenly;
+    /* margin: 2em; */
+    width: 90%;
+    margin-left: 8em;
+    background-color: white;
+    padding-bottom: 2em;
+}
+
+.title-form {
+    border: 2px solid teal;
+    width: 60%;
+}
+
+.identifiant {
+    /* border: 2px solid rebeccapurple; */
+    width: 30%;
+}
+
+#utlisateurs {
+    /* background-color: aqua; */
+    background-image: url('../img/img-bg.jpg');
+    background-size: cover;
+    padding-bottom: 2em;
+}
+
+input {
+    /* padding-top: 1em; */
+    border: 2px solid rebeccapurple;
+}
+
+.form {
+    margin: 2em;
+}
+
+.logo-inscrit {
+    display: flex;
+    height: 20vh;
+    margin-left: 30%;
+    margin-top: 2em;
+    width: 10vw;
+    border-radius: 50%;
+    border: 9px solid rgb(23, 174, 194);
+}
+
+.identifiant h3 {
+    text-align: center;
+}

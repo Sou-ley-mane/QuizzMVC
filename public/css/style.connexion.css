@@ -2,17 +2,6 @@
     box-sizing: border-box;
 }
 
-header {
-    background-color: rgb(5, 10, 5);
-    padding: 1em;
-}
-
-header h1 {
-    text-align: center;
-    color: white;
-    font-size: 2.5em;
-}
-
 main {
     /* background-color: rgb(185, 115, 250); */
     background-image: url('../img/img-bg.jpg');
@@ -143,8 +132,4 @@ main {
     top: 40px;
     right: 10px;
     visibility: visible;
-}
-
-.inscrit {
-    margin-left: 2em;
 }

@@ -50,9 +50,14 @@ require_once(DOSSIER_SRC."models".DIRECTORY_SEPARATOR."user.model.php" );
                     }
                     break;
 
-                    // case 'liste.Joueur':
-                    //     listeJoueur();
-                    //     break;
+                    case 'liste.Joueur':
+
+                        listeJoueur();
+                        break;
+                        case 'liste.question':
+                            LesQuestion();
+                            // echo("Liste des question");
+                            break;
                 default:
                     # code...
                     break;
@@ -83,7 +88,7 @@ require_once(DOSSIER_SRC."models".DIRECTORY_SEPARATOR."user.model.php" );
             // Appel du model
             $donnees=listeDesQuestion("questions");
             // Chargement de la vue
-            require_once(DOSSIER_TEMPLATES."user".DIRECTORY_SEPARATOR."Liste.joueurs.html.php");
+            require_once(DOSSIER_TEMPLATES."user".DIRECTORY_SEPARATOR."Liste.question.html.php");
             $contenu_vues=ob_get_clean();
             require_once(DOSSIER_TEMPLATES."user".DIRECTORY_SEPARATOR."accueil.html.php");
 

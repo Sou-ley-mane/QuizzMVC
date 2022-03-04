@@ -1,0 +1,16 @@
+.partout {
+    background-color: black;
+    /* color: white; */
+    text-align: center;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.partout h1 {
+    margin-left: 32%;
+}
+
+.logo {
+    margin-left: 2em;
+}

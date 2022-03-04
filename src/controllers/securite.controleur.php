@@ -26,15 +26,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
                 # code...
                 break;
         }
-    }
-
-    
-}else {
-    
-    // echo("Bienvenue dans la page de connexion");
-    require_once(DOSSIER_TEMPLATES."securite".DIRECTORY_SEPARATOR."connexion.html.php");
-
-    
+    }   
 }
 
 // *************************************************************************
@@ -43,7 +35,8 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
 // Avec une requete GET generalemnt on charge une page
 if ($_SERVER["REQUEST_METHOD"]=="GET") {
     // echo("La requete est de type GET");
-    if (isset($_REQUEST["action"])) {
+    if(isset($_REQUEST["action"])){  
+        // var_dump($_REQUEST["action"]);
         // L'action a executer
         switch ($_REQUEST["action"]) {
             case 'connexion':
@@ -51,33 +44,31 @@ if ($_SERVER["REQUEST_METHOD"]=="GET") {
                 // Chargement de la page connexion
                 require_once(DOSSIER_TEMPLATES."securite".DIRECTORY_SEPARATOR."connexion.html.php");
 
+            break;
+
+            case 'inscription':
+            // header("location:".DOSSIER_TEMPLATES."securite".DIRECTORY_SEPARATOR."inscription.html.php");
+                // Chargement de la page connexion
+                
+                require_once(DOSSIER_TEMPLATES."securite".DIRECTORY_SEPARATOR."inscription.html.php");
+
                 break;
 
-                case 'inscription':
-                // header("location:".DOSSIER_TEMPLATES."securite".DIRECTORY_SEPARATOR."inscription.html.php");
-                    // Chargement de la page connexion
-                    require_once(DOSSIER_TEMPLATES."securite".DIRECTORY_SEPARATOR."inscription.html.php");
-    
-                    break;
+            case 'deconnexion':
+            // Fonctoin pour deconnecter l'utilisateur
+                deconnecter();
 
-                case 'deconnexion':
-                // Fonctoin pour deconnecter l'utilisateur
-                   deconnecter();
-    
-                    break;
+            break;
 
    
             default:
                 # code...
                 break;
-        }
-    
-}else {
-    // echo("Bienvenue dans la page de connexion");
-    require_once(DOSSIER_TEMPLATES."securite".DIRECTORY_SEPARATOR."connexion.html.php");
-
-    
-}
+        } 
+    }else {
+       // echo("Bienvenue dans la page de connexion");
+         require_once(DOSSIER_TEMPLATES."securite".DIRECTORY_SEPARATOR."connexion.html.php");
+    }
 }
 
 // ************************************************************************
@@ -102,8 +93,6 @@ function connexion(string $login,string $password):void{
     if (count($errors)==0) {   
     //   valid_password('password',$password,$errors);  
        
-
-        
         $user=correspondance_login_password($login,$password);
 // var_dump($user);die;
         // var_dump($user);die;
@@ -115,7 +104,7 @@ function connexion(string $login,string $password):void{
         //    die("Bienvenue sue la page d'accueil");
 
            header("Location:".WEB_ROOT."?controleur=user&action=accueil");
-
+exit();
 // Si la connexion s'est bien passé redirection vers la page d'accueil
          
         }else {
@@ -123,10 +112,7 @@ function connexion(string $login,string $password):void{
        $errors['connexion']="Login ou mot de passe incorrect";
 
             $_SESSION['errors']=$errors;
-
-            
-           
-           
+       
 // die("vos donnees ne son pas valides");
             header("location:".WEB_ROOT);
             //    Arrete la redirection
