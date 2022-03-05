@@ -19,7 +19,7 @@
     justify-content: center;
     justify-content: space-evenly;
     height: 8em;
-    margin: 1em;
+    margin: 0.5em;
 }
 
 .btn {
@@ -33,6 +33,7 @@
     display: flex;
     justify-content: space-evenly;
     /* color: white; */
+    /* box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5pX 0 rgba(0, 0, 0, 0.24); */
 }
 
 .formulaire {
@@ -49,6 +50,7 @@
     text-decoration: none;
     color: gray;
     font-weight: bold;
+    padding: 1em;
 }
 
 .contenu {
@@ -56,17 +58,22 @@
     justify-content: center;
     justify-content: space-around;
     /* background-color: rgb(212, 206, 199); */
-    height: 80vh;
-    margin: 1em;
+    height: 100vh;
+    margin: 0em;
+    background-color: white;
+    padding: 1em;
 }
 
 .icone-form {
-    background-color: rgb(238, 230, 230);
+    /* background-color: rgb(238, 230, 230); */
     width: 30%;
-    height: 75%;
+    height: 70vh;
+    /* height: 90vh; */
     /* margin: 2em; */
-    margin-top: 5em;
+    /* margin-top: 5em; */
+    margin-right: 1em;
     border: 9px solid rgb(238, 230, 230);
+    background-color: white;
     /* border-left: rgb(238, 230, 230); */
 }
 
@@ -74,8 +81,10 @@
     background-color: white;
     color: rgb(17, 8, 8);
     border: 9px solid rgb(238, 230, 230);
-    width: 50%;
-    border-radius: 10px;
+    width: 70%;
+    border-radius: 20px;
+    box-sizing: border-box;
+    height: 90vh;
 }
 
 .photo {
@@ -92,7 +101,8 @@
 
 a:hover {
     background-color: rgb(211, 201, 201);
-    padding: 0.5em;
+    border-left: 3px solid green;
+    /* padding: 0.5em; */
 }
 
 .logo {

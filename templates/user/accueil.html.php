@@ -1,7 +1,7 @@
 <!-- Layout ou page de présentation -->
 <?php 
     require_once(DOSSIER_TEMPLATES."include".DIRECTORY_SEPARATOR."haut.inc.html.php");
-    require_once(DOSSIER_TEMPLATES."include".DIRECTORY_SEPARATOR."partout.php");
+    // require_once(DOSSIER_TEMPLATES."include".DIRECTORY_SEPARATOR."partout.php");
     
 ?>
 
@@ -26,15 +26,16 @@
 
         <div class="formulaire">
         <a href="<?=WEB_ROOT."?controleur=user&action=liste.question" ?>">Liste Questions  <img class="ok" src="<?= DOSSIER_PUBLIC."img".DIRECTORY_SEPARATOR."icones".DIRECTORY_SEPARATOR."ic-liste-active.png"?>" alt="PROFIL"></a>
-
-        <a href="<?=WEB_ROOT."?controleur=user&action=accueil" ?>">Créer Admin <img class="ok"  src="<?= DOSSIER_PUBLIC."img".DIRECTORY_SEPARATOR."icones".DIRECTORY_SEPARATOR."ic-ajout-réponse.png"?>" alt="PROFIL"></a>
-
+        <?php if (Administrateur()):?> 
+        <a href="<?=WEB_ROOT."?controleur=user&action=inscription" ?>">Créer Admin <img class="ok"  src="<?= DOSSIER_PUBLIC."img".DIRECTORY_SEPARATOR."icones".DIRECTORY_SEPARATOR."ic-ajout-réponse.png"?>" alt="PROFIL"></a>
+        <?php endif ?>
   <?php if (Administrateur()):?> 
         <a href="<?=WEB_ROOT."?controleur=user&action=liste.Joueur" ?>">Liste des joueurs <img class="ok"  src="<?= DOSSIER_PUBLIC."img".DIRECTORY_SEPARATOR."icones".DIRECTORY_SEPARATOR."ic-liste.png"?>" alt="PROFIL"></a>
         <?php endif ?>
-        
-        <a href="<?=WEB_ROOT."?controleur=user&action=accueil" ?>">Créer Questions <img class="ok"  src="<?= DOSSIER_PUBLIC."img".DIRECTORY_SEPARATOR."icones".DIRECTORY_SEPARATOR."ic-ajout-réponse.png"?>" alt="PROFIL"></a>
 
+        <?php if (Administrateur()):?> 
+        <a href="<?=WEB_ROOT."?controleur=user&action=inscription"?>">Créer question<img class="ok"  src="<?= DOSSIER_PUBLIC."img".DIRECTORY_SEPARATOR."icones".DIRECTORY_SEPARATOR."ic-ajout-réponse.png"?>" alt="PROFIL"></a>
+        <?php endif ?>
         </div>
 
     </div>

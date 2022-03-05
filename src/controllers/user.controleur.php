@@ -43,9 +43,9 @@ require_once(DOSSIER_SRC."models".DIRECTORY_SEPARATOR."user.model.php" );
                         listeJoueur(); 
 
                     }elseif (Joueur()) {
-
                         jeu();
-                    // die("okkkk");
+
+                // ;     LesQuestion();
 
                     }
                     break;
@@ -58,6 +58,15 @@ require_once(DOSSIER_SRC."models".DIRECTORY_SEPARATOR."user.model.php" );
                             LesQuestion();
                             // echo("Liste des question");
                             break;
+
+                            case 'inscription':
+                                inscritAdmin();
+                                // echo("Liste des question");
+                                break;
+
+
+
+
                 default:
                     # code...
                     break;
@@ -105,6 +114,17 @@ require_once(DOSSIER_SRC."models".DIRECTORY_SEPARATOR."user.model.php" );
             // $donnees=listeDesUtilisateurs("PROFIL_JOUEUR");
             // Chargement de la vue
             require_once(DOSSIER_TEMPLATES."user".DIRECTORY_SEPARATOR."jeu.html.php");
+            $contenu_vues=ob_get_clean();
+            require_once(DOSSIER_TEMPLATES."user".DIRECTORY_SEPARATOR."accueil.html.php");
+
+        }
+
+        // **********************************************
+        function inscritAdmin(){
+            // chargement temporaire du contenu d'un fichier
+            ob_start();
+    
+            require_once(DOSSIER_TEMPLATES."securite".DIRECTORY_SEPARATOR."inscription.html.php");
             $contenu_vues=ob_get_clean();
             require_once(DOSSIER_TEMPLATES."user".DIRECTORY_SEPARATOR."accueil.html.php");
 

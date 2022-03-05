@@ -14,18 +14,19 @@
 .inscrire {
     display: flex;
     /* border: 3px solid red; */
-    height: 80vh;
+    height: 88vh;
     justify-content: space-evenly;
     /* margin: 2em; */
-    width: 90%;
+    width: 70%;
     margin-left: 8em;
     background-color: white;
-    padding-bottom: 2em;
+    /* padding-bottom: 2em; */
 }
 
 .title-form {
-    border: 2px solid teal;
+    /* border: 2px solid teal; */
     width: 60%;
+    height: 45vw;
 }
 
 .identifiant {
@@ -35,19 +36,22 @@
 
 #utlisateurs {
     /* background-color: aqua; */
-    background-image: url('../img/img-bg.jpg');
+    /* background-image: url('../img/img-bg.jpg'); */
     background-size: cover;
-    padding-bottom: 2em;
+    padding-bottom: 3em;
+    height: 90vh;
 }
 
+
+/* 
 input {
-    /* padding-top: 1em; */
     border: 2px solid rebeccapurple;
-}
+} */
 
-.form {
+
+/* .form {
     margin: 2em;
-}
+} */
 
 .logo-inscrit {
     display: flex;
@@ -61,4 +65,20 @@ input {
 
 .identifiant h3 {
     text-align: center;
+}
+
+input {
+    border: 2px solid rgb(196, 198, 209);
+    /* font-size: 3em; */
+}
+
+.fichier {
+    display: flex;
+    justify-content: space-around;
+}
+
+.connect-inscrit {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

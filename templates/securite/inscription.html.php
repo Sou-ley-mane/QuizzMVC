@@ -1,10 +1,6 @@
-<?php 
-    require_once(DOSSIER_TEMPLATES."include".DIRECTORY_SEPARATOR."haut.inc.html.php");
-    require_once(DOSSIER_TEMPLATES."include".DIRECTORY_SEPARATOR."partout.php");
-    
-?>
+
 <div id="utlisateurs">
-<div class="inscrire">
+    <div class="inscrire">
 
     <div class="title-form">
         <div class="title">
@@ -76,8 +72,16 @@
             </div>
 
                 <!-- ****************************************************************** -->
+                <div class="fichier">
+                <h3>Avatar</h3>
+                <button type="submit" id="validation">Choisir un fichier</button>
 
+                <!-- <input type="file" id=""value=" Choisir un fichier"> -->
+
+                </div>
+               
                 <button type="submit" id="validation">Créer un compte</button>
+
                 <!-- <input type="button"> -->
 
         </form>
@@ -96,6 +100,3 @@
 
   <script src="<?= DOSSIER_PUBLIC."js".DIRECTORY_SEPARATOR."inscription.js"?>"></script>
 
-<?php
-    require_once(DOSSIER_TEMPLATES."include".DIRECTORY_SEPARATOR."bas.inc.html.php");
-?>

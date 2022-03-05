@@ -49,8 +49,9 @@ if ($_SERVER["REQUEST_METHOD"]=="GET") {
             case 'inscription':
             // header("location:".DOSSIER_TEMPLATES."securite".DIRECTORY_SEPARATOR."inscription.html.php");
                 // Chargement de la page connexion
-                
+                require_once(DOSSIER_TEMPLATES."include".DIRECTORY_SEPARATOR."haut.inc.html.php");
                 require_once(DOSSIER_TEMPLATES."securite".DIRECTORY_SEPARATOR."inscription.html.php");
+                require_once(DOSSIER_TEMPLATES."include".DIRECTORY_SEPARATOR."bas.inc.html.php");
 
                 break;
 
@@ -91,12 +92,11 @@ function connexion(string $login,string $password):void{
     champ_obligatoire('password',$password,$errors,$message="Mot de passe obligatoire");
 
     if (count($errors)==0) {   
-    //   valid_password('password',$password,$errors);  
-       
+    
+
+      valid_password('password',$password,$errors);  
         $user=correspondance_login_password($login,$password);
-// var_dump($user);die;
-        // var_dump($user);die;
-        // l'existence de l'utilisateur
+
         if (count($user)!=0) {
             
             // die("if");
@@ -143,3 +143,10 @@ function deconnecter(){
     exit();
 
 }
+
+
+// fonction inscription des utilisateurs
+function inscrire(){
+
+}
+

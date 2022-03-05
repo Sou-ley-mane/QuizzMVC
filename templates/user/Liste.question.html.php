@@ -28,3 +28,5 @@
             <!-- ****************************************************************** -->
             <button id="submit">Suivant</button>
 </div>
+
+<script src="<?= DOSSIER_PUBLIC."js".DIRECTORY_SEPARATOR."listeDesQuestions.js"?>"></script>

@@ -1,6 +1,6 @@
     <?php
     require_once(DOSSIER_TEMPLATES."include".DIRECTORY_SEPARATOR."haut.inc.html.php");
-    require_once(DOSSIER_TEMPLATES."include".DIRECTORY_SEPARATOR."partout.php");
+    // require_once(DOSSIER_TEMPLATES."include".DIRECTORY_SEPARATOR."partout.php");
 
     if (isset($_SESSION['errors'])) {
         
@@ -58,13 +58,13 @@
     ?></p>
                 <?php } ?>
                 </div>
-
+               <div class=connect-inscrit>  
                 <button type="submit" id="bouton">Connexion</button>
                 <a class="inscrit" href="<?= WEB_ROOT."?controleur=securite&action=inscription" ?>">S'inscrire</a>
-    
+                </div>
             </form>
 
-    <script src="<?= DOSSIER_PUBLIC."js".DIRECTORY_SEPARATOR."script.connexion.js"?>"></script>
+            <script src="<?= DOSSIER_PUBLIC."js".DIRECTORY_SEPARATOR."script.connexion.js"?>"></script>
 
             <?php
                 require_once(DOSSIER_TEMPLATES."include".DIRECTORY_SEPARATOR."bas.inc.html.php");

@@ -13,10 +13,13 @@ function correspondance_login_password(string $login,string $password):array{
     }
     return [];
     }
-
 // Fonction pour lister les utilisateurs
     function listeDesUtilisateurs(string $profil):array{
+
         $users=chaine_en_tableau("user");
+// die("bonjour");
+
+        // var_dump($users);die;
         $liste=[];
         foreach ($users as $user) {
             if ($user['profil']==$profil) {

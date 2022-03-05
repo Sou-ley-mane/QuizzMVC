@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="<?= DOSSIER_PUBLIC."css".DIRECTORY_SEPARATOR."style.connexion.css"?>">
     <link rel="stylesheet" href="<?= DOSSIER_PUBLIC."css".DIRECTORY_SEPARATOR."style.accueil.css"?>">
     <link rel="stylesheet" href="<?= DOSSIER_PUBLIC."css".DIRECTORY_SEPARATOR."style.liste.joueur.css"?>">
-    <link rel="stylesheet" href="<?= DOSSIER_PUBLIC."css".DIRECTORY_SEPARATOR."partout.css"?>">
     <link rel="stylesheet" href="<?= DOSSIER_PUBLIC."css".DIRECTORY_SEPARATOR."inscription.user.css"?>">
 
 
@@ -20,3 +19,10 @@
 </head>
 
 <body>
+<div class="partout">
+   
+   <img class="logo" src="<?= DOSSIER_PUBLIC."img".DIRECTORY_SEPARATOR."icones".DIRECTORY_SEPARATOR."logo-QuizzSA.png"?>" alt="">
+   <h1>LE PLAISIR DE JOUER</h1>
+  
+
+</div>

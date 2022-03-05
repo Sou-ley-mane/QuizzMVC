@@ -9,6 +9,7 @@
         </tr>
       <!-- PHP -->
       <?php foreach ($donnees as $valeur):?>
+        <!-- die($valeur); -->
         <tr>
         <td><?= $valeur['nom']?></td>
         <td><?= $valeur['prenom']?></td>

@@ -2,14 +2,18 @@
     box-sizing: border-box;
 }
 
+body {
+    background-image: url('../img/img-bg.jpg');
+    background-size: cover;
+}
+
 main {
     /* background-color: rgb(185, 115, 250); */
-    background-image: url('../img/img-bg.jpg');
     /* background-image: url(/home/souleymane/Documents/TPjavascript/validation/lion.jpg); */
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 98vh;
+    min-height: 84vh;
     margin: 0%;
     font-family: sans-serif;
     /* background-size: cover; */
@@ -53,7 +57,7 @@ main {
 }
 
 .form-controle input {
-    border: 2px solid #f0f0f0;
+    /* border: 3px solid #f0f0f0; */
     border-radius: 4px;
     display: block;
     width: 100%;
@@ -132,4 +136,24 @@ main {
     top: 40px;
     right: 10px;
     visibility: visible;
+}
+
+
+/* Partour*********************** */
+
+.partout {
+    background-color: black;
+    /* color: white; */
+    text-align: center;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.partout h1 {
+    margin-left: 32%;
+}
+
+.logo {
+    margin-left: 2em;
 }
