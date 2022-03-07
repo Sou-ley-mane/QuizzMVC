@@ -30,11 +30,11 @@
         <a href="<?=WEB_ROOT."?controleur=user&action=inscription" ?>">Créer Admin <img class="ok"  src="<?= DOSSIER_PUBLIC."img".DIRECTORY_SEPARATOR."icones".DIRECTORY_SEPARATOR."ic-ajout-réponse.png"?>" alt="PROFIL"></a>
         <?php endif ?>
   <?php if (Administrateur()):?> 
-        <a href="<?=WEB_ROOT."?controleur=user&action=liste.Joueur" ?>">Liste des joueurs <img class="ok"  src="<?= DOSSIER_PUBLIC."img".DIRECTORY_SEPARATOR."icones".DIRECTORY_SEPARATOR."ic-liste.png"?>" alt="PROFIL"></a>
+        <a class="active" href="<?=WEB_ROOT."?controleur=user&action=liste.Joueur" ?>">Liste des joueurs <img class="ok"  src="<?= DOSSIER_PUBLIC."img".DIRECTORY_SEPARATOR."icones".DIRECTORY_SEPARATOR."ic-liste.png"?>" alt="PROFIL"></a>
         <?php endif ?>
 
         <?php if (Administrateur()):?> 
-        <a href="<?=WEB_ROOT."?controleur=user&action=inscription"?>">Créer question<img class="ok"  src="<?= DOSSIER_PUBLIC."img".DIRECTORY_SEPARATOR."icones".DIRECTORY_SEPARATOR."ic-ajout-réponse.png"?>" alt="PROFIL"></a>
+        <a href="<?=WEB_ROOT."?controleur=user&action=creeQuestion"?>">Créer question<img class="ok"  src="<?= DOSSIER_PUBLIC."img".DIRECTORY_SEPARATOR."icones".DIRECTORY_SEPARATOR."ic-ajout-réponse.png"?>" alt="PROFIL"></a>
         <?php endif ?>
         </div>
 

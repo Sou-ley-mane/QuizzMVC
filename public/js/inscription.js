@@ -42,7 +42,7 @@ function recuperer() {
         valid = false
     } else if (valeurpassword2 !== valeurpassword) {
         afficheErreur(password2, "non identique au mot passe saisi")
-        return false;
+        valid = false;
 
     } else {
         afficheSucess(password2);
@@ -54,7 +54,8 @@ function recuperer() {
     // // *****************************************************
     if (valeurPrenom === "") {
         // Appel de la class erreur
-        afficheErreur(prenom, "Veillez donner votre prenom ")
+        afficheErreur(prenom, "Veillez donner votre prenom ");
+        valid = false;
     } else {
         // Appel de la class succces
         afficheSucess(prenom)
@@ -63,9 +64,12 @@ function recuperer() {
     if (valeurnom === "") {
         // Appel de la class erreur
         afficheErreur(nom, "Veillez donner votre nom ")
+        valid = false;
+
+
     } else {
         // Appel de la class succces
-        afficheSucess(nom)
+        afficheSucess(nom);
     }
     // ***********************************************************
     if (valeurEmail === "") {
@@ -92,14 +96,14 @@ function afficheErreur(input, message) {
     small.innerText = message;
     // La classe erreur
     formControl.className = 'form-controle error';
-    return false;
+    // return false;
 }
 
 // Affiche succes
 function afficheSucess(input) {
     const formControl = input.parentElement;
     formControl.className = 'form-controle succes';
-    return true;
+
 
 
 }
@@ -144,8 +148,10 @@ function validMotPasse(input) {
 
 
 bouton2.addEventListener('click', (e) => {
-        recuperer();
-        e.preventDefault();
+        if (!recuperer()) {
+            e.preventDefault();
+        }
+
     }
 
 
@@ -155,13 +161,8 @@ bouton2.addEventListener('click', (e) => {
 );
 
 
-bouton.addEventListener('click', (e) => {
-        recuperer();
-        e.preventDefault();
-    }
 
 
-    // A vérifier sur le net
-    // recuperer();
 
-);
+// A vérifier sur le net
+// recuperer();

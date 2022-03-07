@@ -17,6 +17,7 @@
         <div class="conteneur">
             <div class="header">
                 <h2>Login form</h2>
+                <h2>X</h2>
             </div>
             
             <form action="<?= WEB_ROOT?>" class="form" id="form" method="POST">

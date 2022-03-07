@@ -63,6 +63,9 @@ require_once(DOSSIER_SRC."models".DIRECTORY_SEPARATOR."user.model.php" );
                                 inscritAdmin();
                                 // echo("Liste des question");
                                 break;
+                                case 'creeQuestion':
+                                    Question();
+                                    break;
 
 
 
@@ -114,6 +117,16 @@ require_once(DOSSIER_SRC."models".DIRECTORY_SEPARATOR."user.model.php" );
             // $donnees=listeDesUtilisateurs("PROFIL_JOUEUR");
             // Chargement de la vue
             require_once(DOSSIER_TEMPLATES."user".DIRECTORY_SEPARATOR."jeu.html.php");
+            $contenu_vues=ob_get_clean();
+            require_once(DOSSIER_TEMPLATES."user".DIRECTORY_SEPARATOR."accueil.html.php");
+
+        }
+        // ********************************************
+        function Question(){
+            // chargement temporaire du contenu d'un fichier
+            ob_start();
+          
+            require_once(DOSSIER_TEMPLATES."securite".DIRECTORY_SEPARATOR."creeQuestion.html.php");
             $contenu_vues=ob_get_clean();
             require_once(DOSSIER_TEMPLATES."user".DIRECTORY_SEPARATOR."accueil.html.php");
 

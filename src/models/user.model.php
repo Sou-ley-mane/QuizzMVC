@@ -13,6 +13,22 @@ function correspondance_login_password(string $login,string $password):array{
     }
     return [];
     }
+
+    // ****************************Compte existant***************************
+    function existeCompte(string $login):array{
+        // orm
+        $utilisateurs=chaine_en_tableau("user");
+
+        foreach ($users as $user) {
+            // s'il y'a une correspondance on a le user
+        if( $user['login']==$login)
+        return $user;
+        }
+        return [];
+        }
+    
+
+
 // Fonction pour lister les utilisateurs
     function listeDesUtilisateurs(string $profil):array{
 
@@ -41,3 +57,4 @@ return $liste;
             }
 return $liste;
     }
+

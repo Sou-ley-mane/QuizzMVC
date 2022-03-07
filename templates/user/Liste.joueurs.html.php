@@ -1,7 +1,8 @@
-
+<h3 id="score"><i>LISTE DES JOUEURS PAR SCORE</i></h3>
 <div class="les_joueurs">
-    <h3><i>LISTE DES JOUEURS PAR SCORE</i></h3>
+
     <table>
+       
         <tr>
             <th>Nom</th>
             <th>Penom</th>
@@ -13,12 +14,14 @@
         <tr>
         <td><?= $valeur['nom']?></td>
         <td><?= $valeur['prenom']?></td>
-        <td><?=$valeur['score']?></td>
+        <td><?=$valeur['score']?><span>pts</span></td>
         </tr>
         <?php endforeach ?>
     </table>
 
 </div>
+
+<button class="pasi">Suivant</button>
     
 
 

@@ -1,18 +1,16 @@
 <?php
 
-function champ_obligatoire(string $cle,string $donnees,array &$errors,string
-$message="Veillez remplir ce champ"){
+function champ_obligatoire(string $cle,string $donnees,array &$errors,string $message="Veillez remplir ce champ"){
 if(empty($donnees)){
 $errors[$cle]=$message;
 }
 }
 // ***********************************************************************************
-function valid_email(string $cle,string $donnees,array &$errors,string $message=" format email
-invalid"){
-    $valider=preg_match('/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/',$donnees);
+function valid_email(string $cle,string $donnees,array &$errors,string $message=" format email invalid"){
+    $regex='/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/';
+    $valider=preg_match($regex,$donnees);
     if (!$valider) {
-        $errors[$cle]=$message;
-       
+        $errors[$cle]=$message;  
     }
 
 // if(!filter_var($donnees,FILTER_VALIDATE_EMAIL)){
@@ -20,10 +18,20 @@ invalid"){
 // }
 }
 
-// ********************************A FAIRE *********************************
+// ******************************** *********************************
 function valid_password(string $cle,string $donnees,array &$errors,string $message="Merci de vérifier le format de votre mot de passe"){
-    $valider=preg_match('/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/',$donnees);
+    $regex='/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/';
+    $valider=preg_match($regex,$donnees);
     if (!$valider) {
+        $errors[$cle]=$message;
+       
+    }
+}
+
+// *****************************Valide password2****************************
+function valid_password2(string $cle,string $donnees,array &$errors,string $message="Confirmer votre mot de passe"){
+    $valider=preg_match('/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/',$donnees);
+    if (!$valider && $password2.value!=$password.value) {
         $errors[$cle]=$message;
        
     }

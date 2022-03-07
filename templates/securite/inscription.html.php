@@ -1,34 +1,44 @@
 
+ 
 <div id="utlisateurs">
     <div class="inscrire">
 
     <div class="title-form">
+    
+   
         <div class="title">
-            <h1>S'INSCRIRE</h1>
+            <h2>S'INSCRIRE</h2>
+            
             <h3>Pour tester votre niveau de culture générale</h3>
         </div>
-        <form action="" class="form">
+    
+
+       
+        <form action="<?= WEB_ROOT ?>" method="POST" class="form">
             <!-- Champ cachés -->
             <!-- Champ pour gerer le controleur -->
             <input type="hidden" name="controleur" value="securite">
             <!-- Champ pour gerer les actions -->
-            <input type="hidden" name="action" value="connexion">
+            <input type="hidden" name="action" value="compte">
         <!-- Les erreurs en php -->
-        <?php if (isset($errors['connexion'])):?>   
-       <p style="color:red"> <?= $errors['connexion'] ?></p>
+        <?php if (isset($errors['compte-existant'])):?>   
+       <p style="color:red"> <?= $errors['compte-existant'] ?></p>
      <?php endif ?>
      <!-- *********************************************************** -->
      <div class="form-controle">
                 <label for="utilisateur">Prenom</label>
-                <input type="text" placeholder="votre prénom" id="prenom">
+                <input type="text" placeholder="votre prénom" id="prenom" name="prenom">
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
                 <small>Message d'erreur</small>
+                <?php if(isset($errors['prenom'])) :?>
+                <span style="color:red"><?=$errors['login'];?></span>
+                <?php endif?>
             </div>
      <!-- *************************************************************** -->
      <div class="form-controle">
                 <label for="utilisateur">Nom</label>
-                <input type="text" placeholder="votre nom " id="nom">
+                <input type="text" placeholder="votre nom " id="nom" name="nom">
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
                 <small>Message d'erreur</small>
@@ -65,7 +75,7 @@
 
                 <div class="form-controle">
                 <label for="utilisateur">Confirme mot de passe</label>
-                <input type="password" placeholder="confirmer votre mot de passe" id="password2">
+                <input type="password" placeholder="confirmer votre mot de passe" id="password2" name="password2">
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
                 <small>Message d'erreur</small>
@@ -74,15 +84,11 @@
                 <!-- ****************************************************************** -->
                 <div class="fichier">
                 <h3>Avatar</h3>
-                <button type="submit" id="validation">Choisir un fichier</button>
-
-                <!-- <input type="file" id=""value=" Choisir un fichier"> -->
-
+                <input type="file" id="">
                 </div>
                
-                <button type="submit" id="validation">Créer un compte</button>
+                <button  type="submit" id="validation" name="compte" >Créer un compte</button>
 
-                <!-- <input type="button"> -->
 
         </form>
     </div>
@@ -97,6 +103,6 @@
 
 
   </div>
-
   <script src="<?= DOSSIER_PUBLIC."js".DIRECTORY_SEPARATOR."inscription.js"?>"></script>
+
 

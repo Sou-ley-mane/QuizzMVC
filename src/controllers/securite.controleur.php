@@ -2,14 +2,39 @@
 
 // Le controleur charge le model
 require_once(DOSSIER_SRC."models".DIRECTORY_SEPARATOR."user.model.php" );
-// Avec une requete POST generalemnt on charge les données d'un formulaire
-// die("Hello");
-// var_dump($_SERVER["REQUEST_METHOD"]);
+
 // Verification du type de requete
 if ($_SERVER["REQUEST_METHOD"]=="POST") {
+
+
     // echo("La requete est de type POST");
-    if (isset($_REQUEST["action"])) {
-        switch ($_REQUEST["action"]) {
+    // if (isset($_REQUEST["action"])) {
+        // if($_REQUEST["action"]=="compte"){
+        //     $prenom=$_POST['prenom'];
+        //     $nom=$_POST['nom'];
+        //     $login=$_POST['login'];
+        //     $password=$_POST['password'];
+        //     $password2=$_POST['password2'];
+        //     if($password!=$password2){
+        //      champ_obligatoire('prenom',$prenom,$errors,"Veillez saisir votre prenom");
+
+                // var_dump($prenom);
+                // die("password no match");
+
+            // }
+            
+            // compte($nom,$prenom,$login,$password,$password2);
+            // champ_obligatoire('prenom',$prenom,$errors,"Veillez saisir votre prenom");
+            
+    //     }
+    // }else {
+    //     // Senarios d'alternance \\Erreur de validation
+    //    $_SESSION['errors']=$errors;
+    //    header("location:".WEB_ROOT);
+    // //    Arrete la redirection
+    //    exit();
+    // }
+         switch ($_REQUEST["action"]) {
             case 'connexion':
                 // Recuperation des données du user
                 $login=$_POST['login'];
@@ -19,14 +44,20 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
                 connexion($login,$password);
                 // echo("Je veux me connecter");
                 break;
+                // ****************************Creation de compte************************************
+                case 'compte':
+              
+         require_once(DOSSIER_TEMPLATES."securite".DIRECTORY_SEPARATOR."connexion.html.php");
+                    
+                    
+                break;
+                // ********************************************
 
-               
-            
             default:
                 # code...
                 break;
-        }
-    }   
+        } 
+    // }   
 }
 
 // *************************************************************************
@@ -34,25 +65,21 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
 
 // Avec une requete GET generalemnt on charge une page
 if ($_SERVER["REQUEST_METHOD"]=="GET") {
+   // var_dump($_SERVER["REQUEST_METHOD"]); 
+
     // echo("La requete est de type GET");
     if(isset($_REQUEST["action"])){  
-        // var_dump($_REQUEST["action"]);
-        // L'action a executer
         switch ($_REQUEST["action"]) {
-            case 'connexion':
-                
+            case 'connexion':  
                 // Chargement de la page connexion
                 require_once(DOSSIER_TEMPLATES."securite".DIRECTORY_SEPARATOR."connexion.html.php");
-
             break;
-
             case 'inscription':
             // header("location:".DOSSIER_TEMPLATES."securite".DIRECTORY_SEPARATOR."inscription.html.php");
                 // Chargement de la page connexion
                 require_once(DOSSIER_TEMPLATES."include".DIRECTORY_SEPARATOR."haut.inc.html.php");
                 require_once(DOSSIER_TEMPLATES."securite".DIRECTORY_SEPARATOR."inscription.html.php");
                 require_once(DOSSIER_TEMPLATES."include".DIRECTORY_SEPARATOR."bas.inc.html.php");
-
                 break;
 
             case 'deconnexion':
@@ -60,8 +87,6 @@ if ($_SERVER["REQUEST_METHOD"]=="GET") {
                 deconnecter();
 
             break;
-
-   
             default:
                 # code...
                 break;
@@ -137,6 +162,7 @@ exit();
 
 // Fonction deconnexion
 function deconnecter(){
+
     session_destroy();
     session_unset();
     header("location:".WEB_ROOT);
@@ -145,8 +171,50 @@ function deconnecter(){
 }
 
 
-// fonction inscription des utilisateurs
-function inscrire(){
+// fonction validation de compte des utilisateurs
+function compte(string $nom,string $prenom, string $login, string $password,string $password2):void{
+    
+    $errors=[];
+    champ_obligatoire('prenom',$prenom,$errors,$message="Veillez saisir votre prenom");
+    champ_obligatoire('nom',$nom,$errors,$message="Veillez saisir votre nom");
+    champ_obligatoire('login',$login,$errors,$message="le  Login est  obligatoire");
+    if (count($errors)==0) {
+        // est ce que login==email
+        valid_email('login',$login,$errors);   
+    }
+    champ_obligatoire('password',$password,$errors,$message="Mot de passe obligatoire");
+    if (count($errors)==0) {
+    //    Valide mot dot de passe
+    valid_password('password',$password,$errors);  
+
+    }
+
+    champ_obligatoire('password2',$password2,$errors,$message="Confirmer votre mot de passe");
+    if (count($errors)==0) {
+        //    Valide mot de passe 2
+        valid_password2('password2',$password,$errors);  
+
+        // ************************************************************
+      
+
+        $utilisateur=existeCompte($login);
+        if (count($utilisateur)!==0) {
+            // die("compte existe");
+          $errors['compte-existant']="le compte existe déja merci d'entre un nouveau login";
+
+        }else {
+            echo("Votre compte a été créer avec succé");
+        
+            require_once(DOSSIER_TEMPLATES."securite".DIRECTORY_SEPARATOR."connexion.html.php");
+            
+
+        
+        }
+
+        }
+
+
+
 
 }
 

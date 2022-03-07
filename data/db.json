@@ -32,38 +32,8 @@
             "profil": "PROFIL_JOUEUR",
             "score": 15
         },
-        {
-            "nom": "Ndiaye",
-            "prenom": "Oumy",
-            "login": "jouer@gmail.com",
-            "password": "jour",
-            "profil": "PROFIL_JOUEUR",
-            "score": 15
-        },
-        {
-            "nom": "Diop",
-            "prenom": "Awa",
-            "login": "jouer@gmail.com",
-            "password": "jour",
-            "profil": "PROFIL_JOUEUR",
-            "score": 15
-        },
-        {
-            "nom": "Sy",
-            "prenom": "Papy",
-            "login": "jouer@gmail.com",
-            "password": "jour",
-            "profil": "PROFIL_JOUEUR",
-            "score": 15
-        },
-        {
-            "nom": "Ka",
-            "prenom": "Mamadou",
-            "login": "jouer@gmail.com",
-            "password": "jour",
-            "profil": "PROFIL_JOUEUR",
-            "score": 15
-        },
+
+
         {
             "nom": "Ly",
             "prenom": "Demba",

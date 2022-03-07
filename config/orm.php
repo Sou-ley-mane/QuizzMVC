@@ -5,6 +5,7 @@
 function chaine_en_tableau(string $cle):array{
     // Recuperation du contenu de notre fichier Json dans l'orm
 $donnes=file_get_contents(DOSSIER_DATA);
+
 // var_dump($donnes);die;
 // Transformation des données ($donnes) en tableau 
 $tableau=json_decode($donnes,true);
