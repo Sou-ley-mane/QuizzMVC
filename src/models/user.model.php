@@ -1,32 +1,33 @@
 <?php
 
+
 // verification des donnees
 function correspondance_login_password(string $login,string $password):array{
+    
     // orm
     $users=chaine_en_tableau("user");
-   
 
     foreach ($users as $user) {
         // s'il y'a une correspondance on a le user
-    if( $user['login']==$login && $user['password']==$password)
-    return $user;
+        if( $user['login']==$login && $user['password']==$password)
+        return $user;
     }
     return [];
-    }
+}
 
-    // ****************************Compte existant***************************
-    function existeCompte(string $login):array{
-        // orm
-        $utilisateurs=chaine_en_tableau("user");
-
+// ****************************Compte existant***************************
+function correspondance_login(string $login):array{
+        $users=chaine_en_tableau("user");
+    // var_dump($users);die;
         foreach ($users as $user) {
             // s'il y'a une correspondance on a le user
-        if( $user['login']==$login)
-        return $user;
+            if( $user['login']==$login)
+            return $user;
         }
         return [];
-        }
-    
+    }
+       
+ 
 
 
 // Fonction pour lister les utilisateurs
@@ -57,4 +58,17 @@ return $liste;
             }
 return $liste;
     }
+    // ****************************************************************
+function userArray():array{
+    $tab=[
+        'prenom'=>$_POST['prenom'],
+        'nom'=>$_POST['nom'],
+        'login'=>$_POST['login'],
+        'password'=>$_POST['password'],
+        'profil'=>"PROFIL_JOUEUR",
+        'score'=>15
+
+    ];
+    return  $tab;
+}
 

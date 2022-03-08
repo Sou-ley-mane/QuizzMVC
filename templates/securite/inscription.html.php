@@ -1,4 +1,11 @@
+<?php
+ if (isset($_SESSION['errors'])) {
+        
+    $errors=$_SESSION['errors'];
 
+unset($_SESSION['errors']);
+
+}?>
  
 <div id="utlisateurs">
     <div class="inscrire">
@@ -31,8 +38,9 @@
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
                 <small>Message d'erreur</small>
+                <!-- ********************************* -->
                 <?php if(isset($errors['prenom'])) :?>
-                <span style="color:red"><?=$errors['login'];?></span>
+                <span style="color:red"><?=$errors['prenom'];?></span>
                 <?php endif?>
             </div>
      <!-- *************************************************************** -->
@@ -42,6 +50,9 @@
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
                 <small>Message d'erreur</small>
+                <?php if(isset($errors['nom'])) :?>
+                <span style="color:red"><?=$errors['nom'];?></span>
+                <?php endif?>
             </div>
      <!-- ***************************************************************** -->
 
@@ -79,6 +90,10 @@
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
                 <small>Message d'erreur</small>
+<!-- ********************************************** -->
+                <?php if (isset($errors['password2'])){?>
+                <p style="color:red"> <?=$errors['password2']?></p>
+                <?php } ?>
             </div>
 
                 <!-- ****************************************************************** -->
@@ -103,6 +118,6 @@
 
 
   </div>
-  <script src="<?= DOSSIER_PUBLIC."js".DIRECTORY_SEPARATOR."inscription.js"?>"></script>
+  <!-- <script src="<?= DOSSIER_PUBLIC."js".DIRECTORY_SEPARATOR."inscription.js"?>"></script> -->
 
 

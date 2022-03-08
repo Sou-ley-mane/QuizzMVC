@@ -16,7 +16,7 @@
 .inscrire {
     display: flex;
     /* border: 3px solid red; */
-    height: 72vh;
+    height: 100vh;
     justify-content: space-evenly;
     /* margin: 2em; */
     width: 70%;
@@ -98,3 +98,6 @@ button {
     /* background-color: brown; */
     /* padding: 1em 2em 1em 2em; */
 }
+
+
+/* ***************************Creer question */

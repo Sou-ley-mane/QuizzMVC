@@ -14,7 +14,6 @@
             "password": "admin22",
             "profil": "PROFIL_ADMIN",
             "score": 0
-
         },
         {
             "nom": "Gaye",
@@ -32,8 +31,6 @@
             "profil": "PROFIL_JOUEUR",
             "score": 15
         },
-
-
         {
             "nom": "Ly",
             "prenom": "Demba",
@@ -131,7 +128,7 @@
             "score": 15
         },
         {
-            "nom": "Dramé",
+            "nom": "Dram\u00e9",
             "prenom": "Ndiaga",
             "login": "jouer@gmail.com",
             "password": "jour",
@@ -145,11 +142,16 @@
             "password": "jouEur44",
             "profil": "PROFIL_JOUEUR",
             "score": 15
+        },
+        {
+            "prenom": "Souleymane",
+            "nom": "Ndiaye",
+            "login": "Souleymane",
+            "password": "aaa123",
+            "profil": "PROFIL_JOUEUR",
+            "score": 15
         }
-
     ],
-
-
     "questions": [{
             "question": "Quel est meilleur language de programmation en 2022",
             "a": "Java",
@@ -159,25 +161,20 @@
             "correct": "a"
         },
         {
-            "question": "Qui est le premier president du sénégal",
+            "question": "Qui est le premier president du s\u00e9n\u00e9gal",
             "a": "Macky Sall",
             "b": "Abdou Diouf",
             "c": "Leopol  senghor",
             "d": "Abdoulaye Wade",
             "correct": "a"
-
         },
         {
-            "question": "Qui est Sadio mané ",
+            "question": "Qui est Sadio man\u00e9 ",
             "a": "Footballeur",
             "b": "Chanteur",
             "c": "Cultivateur",
             "d": "informaticein",
             "correct": "a"
-
         }
     ]
-
-
-
 }

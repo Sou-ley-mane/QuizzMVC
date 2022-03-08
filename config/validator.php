@@ -20,7 +20,7 @@ function valid_email(string $cle,string $donnees,array &$errors,string $message=
 
 // ******************************** *********************************
 function valid_password(string $cle,string $donnees,array &$errors,string $message="Merci de vérifier le format de votre mot de passe"){
-    $regex='/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/';
+    $regex='/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/';
     $valider=preg_match($regex,$donnees);
     if (!$valider) {
         $errors[$cle]=$message;
@@ -29,14 +29,23 @@ function valid_password(string $cle,string $donnees,array &$errors,string $messa
 }
 
 // *****************************Valide password2****************************
-function valid_password2(string $cle,string $donnees,array &$errors,string $message="Confirmer votre mot de passe"){
-    $valider=preg_match('/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/',$donnees);
-    if (!$valider && $password2.value!=$password.value) {
+
+
+
+// function confirmer(string  $password,string $password2){
+//     $indentique=strcmp($password,$password2);
+//     if ($indentique==0) {
+//        return true;
+//     }
+
+
+// }
+
+function passwordNoMatch(string $cle,string $pass1,string $pass2,array &$errors,string $message="password non identique"){
+    if($pass1!=$pass2){
         $errors[$cle]=$message;
-       
     }
 }
-
 
 
 

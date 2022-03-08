@@ -5,49 +5,23 @@ require_once(DOSSIER_SRC."models".DIRECTORY_SEPARATOR."user.model.php" );
 
 // Verification du type de requete
 if ($_SERVER["REQUEST_METHOD"]=="POST") {
-
-
-    // echo("La requete est de type POST");
-    // if (isset($_REQUEST["action"])) {
-        // if($_REQUEST["action"]=="compte"){
-        //     $prenom=$_POST['prenom'];
-        //     $nom=$_POST['nom'];
-        //     $login=$_POST['login'];
-        //     $password=$_POST['password'];
-        //     $password2=$_POST['password2'];
-        //     if($password!=$password2){
-        //      champ_obligatoire('prenom',$prenom,$errors,"Veillez saisir votre prenom");
-
-                // var_dump($prenom);
-                // die("password no match");
-
-            // }
-            
-            // compte($nom,$prenom,$login,$password,$password2);
-            // champ_obligatoire('prenom',$prenom,$errors,"Veillez saisir votre prenom");
-            
-    //     }
-    // }else {
-    //     // Senarios d'alternance \\Erreur de validation
-    //    $_SESSION['errors']=$errors;
-    //    header("location:".WEB_ROOT);
-    // //    Arrete la redirection
-    //    exit();
-    // }
+    if(isset($_REQUEST["action"])){
+            // Recuperation des données du user
+            $login=trim($_POST['login']) ;
+            $password=trim($_POST['password']);
+            $prenom=trim($_POST['prenom']);
+            $nom=trim($_POST['nom']);
+            $password2=trim($_POST['password2']);
+      
          switch ($_REQUEST["action"]) {
             case 'connexion':
-                // Recuperation des données du user
-                $login=$_POST['login'];
-                $password=$_POST['password'];
-                // Appel de la fonction connexion
-                
                 connexion($login,$password);
                 // echo("Je veux me connecter");
                 break;
                 // ****************************Creation de compte************************************
                 case 'compte':
-              
-         require_once(DOSSIER_TEMPLATES."securite".DIRECTORY_SEPARATOR."connexion.html.php");
+                    inscription($nom,$prenom,$login,$password,$password2);
+                //   require_once(DOSSIER_TEMPLATES."securite".DIRECTORY_SEPARATOR."connexion.html.php");
                     
                     
                 break;
@@ -57,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
                 # code...
                 break;
         } 
-    // }   
+    }   
 }
 
 // *************************************************************************
@@ -111,19 +85,13 @@ function connexion(string $login,string $password):void{
         // est ce que login==email
         valid_email('login',$login,$errors);   
     }
-  
-
     // ***********************************************************
     champ_obligatoire('password',$password,$errors,$message="Mot de passe obligatoire");
 
     if (count($errors)==0) {   
-    
-
       valid_password('password',$password,$errors);  
         $user=correspondance_login_password($login,$password);
-
-        if (count($user)!=0) {
-            
+        if (count($user)!=0) { 
             // die("if");
            $_SESSION['user']=$user;
         //    die("Bienvenue sue la page d'accueil");
@@ -150,8 +118,6 @@ exit();
     else {
         // Senarios d'alternance \\Erreur de validation
        $_SESSION['errors']=$errors;
-   
-
        header("location:".WEB_ROOT);
     //    Arrete la redirection
        exit();
@@ -162,7 +128,6 @@ exit();
 
 // Fonction deconnexion
 function deconnecter(){
-
     session_destroy();
     session_unset();
     header("location:".WEB_ROOT);
@@ -171,50 +136,55 @@ function deconnecter(){
 }
 
 
+
 // fonction validation de compte des utilisateurs
-function compte(string $nom,string $prenom, string $login, string $password,string $password2):void{
-    
+function inscription(string $nom,string $prenom, string $login, string $password,string $password2):void{
     $errors=[];
     champ_obligatoire('prenom',$prenom,$errors,$message="Veillez saisir votre prenom");
     champ_obligatoire('nom',$nom,$errors,$message="Veillez saisir votre nom");
+
     champ_obligatoire('login',$login,$errors,$message="le  Login est  obligatoire");
-    if (count($errors)==0) {
-        // est ce que login==email
-        valid_email('login',$login,$errors);   
-    }
-    champ_obligatoire('password',$password,$errors,$message="Mot de passe obligatoire");
-    if (count($errors)==0) {
-    //    Valide mot dot de passe
-    valid_password('password',$password,$errors);  
+    if (!isset($errors['login'])){
+        valid_email('login',$login,$errors); 
 
     }
 
-    champ_obligatoire('password2',$password2,$errors,$message="Confirmer votre mot de passe");
-    if (count($errors)==0) {
-        //    Valide mot de passe 2
-        valid_password2('password2',$password,$errors);  
+    champ_obligatoire('password',$password,$errors,$message="le  password est  obligatoire");
+    if (!isset($errors['password'])){
+        // valid_email('login',$login,$errors); 
+        valid_password('password',$password,$errors); 
+  
+    }
 
-        // ************************************************************
-      
-
-        $utilisateur=existeCompte($login);
-        if (count($utilisateur)!==0) {
-            // die("compte existe");
-          $errors['compte-existant']="le compte existe déja merci d'entre un nouveau login";
+    champ_obligatoire('password2',$password2,$errors,$message="obligatoire");
+    if (!isset($errors['password2'])){
+        passwordNoMatch('password2',$password,$password2,$errors); 
+    }
+    
+if (count($errors)==0) {
+    $result=userArray();
+    tableau_en_chaine('user', $result);
+    require_once(DOSSIER_TEMPLATES."securite".DIRECTORY_SEPARATOR."connexion.html.php");
 
         }else {
-            echo("Votre compte a été créer avec succé");
-        
-            require_once(DOSSIER_TEMPLATES."securite".DIRECTORY_SEPARATOR."connexion.html.php");
+            $util=correspondance_login($login);
+        if (count($util)!=0) {
+            // die("le login existe");
+            $errors['login']="le login existe déja";
+         $_SESSION['errors']=$errors;
+            header("Location:".WEB_ROOT."?controleur=securite&action=inscription");
             
 
         
+        }else {
+            $_SESSION['errors']=$errors;
+            header("Location:".WEB_ROOT."?controleur=securite&action=inscription");
+
+            
         }
 
-        }
+    
 
-
-
+  }
 
 }
-

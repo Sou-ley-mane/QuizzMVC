@@ -1,7 +1,7 @@
 .question {
-    border: 2px solid rgb(37, 216, 223);
+    border: 5px solid rgb(37, 216, 223);
     padding: 0 3em 0 3em;
-    height: 80%;
+    height: 83%;
     border-radius: 25px;
 }
 
@@ -17,24 +17,24 @@
 .label-input input,
 select,
 .lab-input {
-    background-color: rgba(255, 255, 255, 0.938);
+    background-color: rgba(255, 242, 242, 0.938);
     padding: 2em;
-    border-bottom: 2px solid rgb(168, 168, 199);
-    border-right: 2px solid blue;
+    border-bottom: 4px solid black;
+    border-right: 4px solid blue;
     margin: 1em;
 }
 
 .label-inputs input {
-    background-color: rgba(255, 255, 255, 0.938);
+    background-color: rgba(255, 242, 242, 0.938);
     padding: 2em 30em;
-    border-bottom: 2px solid blue;
-    border-right: 2px solid blue;
+    border-bottom: 4px solid blue;
+    border-right: 4px solid blue;
 }
 
 select {
     padding: 2em 20em;
-    border-bottom: 2px solid blue;
-    border-right: 2px solid blue;
+    border-bottom: 4px solid blue;
+    border-right: 4px solid blue;
 }
 
 #Enregistrer {

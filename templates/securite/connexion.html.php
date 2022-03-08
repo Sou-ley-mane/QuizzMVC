@@ -65,7 +65,7 @@
                 </div>
             </form>
 
-            <script src="<?= DOSSIER_PUBLIC."js".DIRECTORY_SEPARATOR."script.connexion.js"?>"></script>
+            <!-- <script src="<?= DOSSIER_PUBLIC."js".DIRECTORY_SEPARATOR."script.connexion.js"?>"></script> -->
 
             <?php
                 require_once(DOSSIER_TEMPLATES."include".DIRECTORY_SEPARATOR."bas.inc.html.php");
