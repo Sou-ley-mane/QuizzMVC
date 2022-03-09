@@ -94,10 +94,16 @@ button {
     align-items: center;
 }
 
-#validation {
+
+/* #validation {
     /* background-color: brown; */
-    /* padding: 1em 2em 1em 2em; */
-}
+
+
+/* padding: 1em 2em 1em 2em; */
 
 
 /* ***************************Creer question */
+
+input:focus {
+    border: 1px solid gold;
+}

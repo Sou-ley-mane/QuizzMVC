@@ -1,16 +1,9 @@
-// LE DOM
-
-// const bouton = document.getElementById("bouton");
 const password = document.getElementById("password");
 const email = document.getElementById("email");
 const password2 = document.getElementById("password2");
 const nom = document.getElementById("nom");
 const prenom = document.getElementById("prenom");
-// const bouton = document.getElementById("validation");
 const bouton2 = document.getElementById("validation");
-
-
-
 
 
 
@@ -23,12 +16,8 @@ function recuperer() {
     const valeurpassword2 = password2.value.trim()
     const valeurnom = nom.value.trim()
     const valeurPrenom = prenom.value.trim()
-
-
-
-
-    // const valeurpassword2 = password2.value.trim()
-    // *************************************************************************
+        // const valeurpassword2 = password2.value.trim()
+        // *************************************************************************
     if (valeurpassword === "") {
         afficheErreur(password, "Veillez saisir votre password")
             // alert("non");
@@ -37,20 +26,16 @@ function recuperer() {
         valid = validMotPasse(password);
     }
     // ***************************************************************
-    if (valeurpassword2 === "") {
-        afficheErreur(password2, "Confirmer votre mot de passe")
-        valid = false
-    } else if (valeurpassword2 !== valeurpassword) {
-        afficheErreur(password2, "non identique au mot passe saisi")
-        valid = false;
+    if (valeurpassword2 != "") {
+        if (valeurpassword2 != valeurpassword) {
+            afficheErreur(password2, "non identique au mot passe saisi")
+            valid = false;
 
+        } else { afficheSucess(password2); }
     } else {
-        afficheSucess(password2);
-
-        // valid = validMotPasse(password2);
-
+        afficheErreur(password2, "Veillez confirmer votre password")
+        valid = false
     }
-
     // // *****************************************************
     if (valeurPrenom === "") {
         // Appel de la class erreur
@@ -65,8 +50,6 @@ function recuperer() {
         // Appel de la class erreur
         afficheErreur(nom, "Veillez donner votre nom ")
         valid = false;
-
-
     } else {
         // Appel de la class succces
         afficheSucess(nom);
@@ -78,15 +61,8 @@ function recuperer() {
     } else {
         valid = ValidateEmail(email);
     }
-
     return valid;
-    // ****************************************************************
-    // if (validMotPasse(password) == true && ValidateEmail(email) == true) {
-    //     return true;
-    // }
-
 }
-
 // *******************************LES FONCTIONS********************************************
 function afficheErreur(input, message) {
     const formControl = input.parentElement;
@@ -98,71 +74,37 @@ function afficheErreur(input, message) {
     formControl.className = 'form-controle error';
     // return false;
 }
-
 // Affiche succes
 function afficheSucess(input) {
     const formControl = input.parentElement;
     formControl.className = 'form-controle succes';
-
-
-
 }
-
-
 // Fonction de validation de mail front
 function ValidateEmail(inputText) {
     var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if (inputText.value.match(mailformat)) {
         afficheSucess(email)
-
         return true;
     } else {
         afficheErreur(email, "le format de votre email est invalide");
         // email.focus();
         return false;
     }
-
-
 }
-
 
 // Fonction pour valider le password
 function validMotPasse(input) {
     var formPassword = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
     if (input.value.match(formPassword)) {
-
         afficheSucess(password);
         return true;
-
     } else {
         afficheErreur(password, "password est invalide")
-
         return false;
     }
-
 }
-
-
-
-
-
-
 bouton2.addEventListener('click', (e) => {
-        if (!recuperer()) {
-            e.preventDefault();
-        }
-
+    if (!recuperer()) {
+        e.preventDefault();
     }
-
-
-    // A vérifier sur le net
-    // recuperer();
-
-);
-
-
-
-
-
-// A vérifier sur le net
-// recuperer();
+});

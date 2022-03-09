@@ -1,4 +1,5 @@
 <h3 id="score"><i>LISTE DES JOUEURS PAR SCORE</i></h3>
+
 <div class="les_joueurs">
 
     <table>
@@ -9,7 +10,7 @@
             <th>Score</th>
         </tr>
       <!-- PHP -->
-      <?php foreach ($donnees as $valeur):?>
+      <?php foreach ($items as $valeur):?>
         <!-- die($valeur); -->
         <tr>
         <td><?= $valeur['nom']?></td>
@@ -20,8 +21,16 @@
     </table>
 
 </div>
+<div>
+     <?php if($page!=1):?>
+<button class="pasi1"><a href="http://localhost:8003/?controleur=user&action=accueil&page=<?=$page-1;?>">Precédent</a></button>
+<?php endif?>
+<?php if($page<$totalPages):?>
+<button class="pasi2"><a href="http://localhost:8003/?controleur=user&action=accueil&page=<?=$page+1;?>">suivant</a></button>
+<?php endif?>
 
-<button class="pasi">Suivant</button>
+</div>
+
     
 
 

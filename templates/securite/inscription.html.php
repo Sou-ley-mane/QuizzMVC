@@ -102,7 +102,7 @@ unset($_SESSION['errors']);
                 <input type="file" id="">
                 </div>
                
-                <button  type="submit" id="validation" name="compte" >Créer un compte</button>
+                <button  type="button" id="validation" name="compte" >Créer un compte</button>
 
 
         </form>
@@ -118,6 +118,6 @@ unset($_SESSION['errors']);
 
 
   </div>
-  <!-- <script src="<?= DOSSIER_PUBLIC."js".DIRECTORY_SEPARATOR."inscription.js"?>"></script> -->
+  <script src="<?= DOSSIER_PUBLIC."js".DIRECTORY_SEPARATOR."inscription.js"?>"></script>
 
 
