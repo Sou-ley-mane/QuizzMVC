@@ -55,7 +55,8 @@ function userArray():array{
         'login'=>$_POST['login'],
         'password'=>$_POST['password'],
         'profil'=>"PROFIL_JOUEUR",
-        'score'=>15
+        'score'=>15,
+        'photo'=>$_FILES['file']['name']
 
     ];
     return  $tab;

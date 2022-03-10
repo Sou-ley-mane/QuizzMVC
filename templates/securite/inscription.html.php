@@ -21,7 +21,7 @@ unset($_SESSION['errors']);
     
 
        
-        <form action="<?= WEB_ROOT ?>" method="POST" class="form">
+        <form action="<?= WEB_ROOT ?>"  method="POST" class="form" enctype='multipart/form-data'>
             <!-- Champ cachés -->
             <!-- Champ pour gerer le controleur -->
             <input type="hidden" name="controleur" value="securite">
@@ -97,27 +97,27 @@ unset($_SESSION['errors']);
             </div>
 
                 <!-- ****************************************************************** -->
-                <div class="fichier">
-                <h3>Avatar</h3>
-                <input type="file" id="">
-                </div>
                
-                <button  type="button" id="validation" name="compte" >Créer un compte</button>
+                <div class="identifiant">
+                <label  for="file">
+                <img class="logo-inscrit" src="<?= DOSSIER_PUBLIC."img".DIRECTORY_SEPARATOR."jul.jpg"?>" alt="PROFIL" id="output" >
+                </label>
+                <input style="display:none" accept="image/*" name="file" id="file" type="file" onchange="loadFile(event)"/>
+            </div>
+                <button  type="submitw" id="validation" name="compte" >Créer un compte</button>
 
 
-        </form>
+     
     </div>
 
-
-                <div class="identifiant">
-                    <img class="logo-inscrit" src="<?= DOSSIER_PUBLIC."img".DIRECTORY_SEPARATOR."jul.jpg"?>" alt="PROFIL">
-
-                    <h3>SOULEYMANE DIALLO</h3>
-                    </div>
-            </div>
-
+ <div id="mor">
+            
+            <h3>AVATAR</h3>
+</div>    
+</form>
 
   </div>
   <script src="<?= DOSSIER_PUBLIC."js".DIRECTORY_SEPARATOR."inscription.js"?>"></script>
 
 
+  

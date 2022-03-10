@@ -5,9 +5,7 @@ const nom = document.getElementById("nom");
 const prenom = document.getElementById("prenom");
 const bouton2 = document.getElementById("validation");
 
-
-
-// Fonction pour recupérer les valeurs des champs
+// Fonction pour recupérer les valeurs des champs et valider les champ 
 function recuperer() {
     var valid = true;
     // const valeurUser = user.value.trim()
@@ -31,7 +29,10 @@ function recuperer() {
             afficheErreur(password2, "non identique au mot passe saisi")
             valid = false;
 
-        } else { afficheSucess(password2); }
+        } else {
+            afficheSucess(password2);
+            valid = true;
+        }
     } else {
         afficheErreur(password2, "Veillez confirmer votre password")
         valid = false
@@ -44,6 +45,7 @@ function recuperer() {
     } else {
         // Appel de la class succces
         afficheSucess(prenom)
+        valid = true;
     }
     // *******************************************************
     if (valeurnom === "") {
@@ -53,6 +55,8 @@ function recuperer() {
     } else {
         // Appel de la class succces
         afficheSucess(nom);
+
+        valid = true;
     }
     // ***********************************************************
     if (valeurEmail === "") {
@@ -108,3 +112,9 @@ bouton2.addEventListener('click', (e) => {
         e.preventDefault();
     }
 });
+
+
+var loadFile = function(event) {
+    var image = document.getElementById("output");
+    image.src = URL.createObjectURL(event.target.files[0]);
+};

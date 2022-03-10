@@ -11,7 +11,12 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
             $prenom=trim($_POST['prenom']);
             $nom=trim($_POST['nom']);
             $password2=trim($_POST['password2']);
-      
+            $photo=$_FILES['file']['name'];
+            $tmp=$_FILES['file']['tmp_name'];
+            $chemin=DOSSIER_PUBLIC."uploads".DIRECTORY_SEPARATOR.$photo;
+            move_uploaded_file($tmp,$chemin);
+            // var_dump(move_uploaded_file($tmp,$chemin));die;
+
          switch ($_REQUEST["action"]) {
             case 'connexion':
                 connexion($login,$password);

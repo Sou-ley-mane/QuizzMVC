@@ -68,22 +68,22 @@ require_once(DOSSIER_SRC."models".DIRECTORY_SEPARATOR."user.model.php" );
             ob_start();
             // Appel du model
             $donnees=listeDesUtilisateurs("PROFIL_JOUEUR");
+            // $items=pagination($donnees);
+            // var_dump($items);die;
+            // $items=pagination($donnees);
+            // var_dump($items);die;
+            // pagination($donnees);
+    $page = (!empty($_GET['page']) && $_GET['page'] > 0) ? intval($_GET['page']) : 1;
+    $limit = 5;
+    $totalPages = ceil(count($donnees) / $limit);
+    // define("MIN","MAX");
+    $page = max($page, 1);
+    $page = min($page, $totalPages);
+    $offset = ($page - 1) * $limit;
+    $offset = ($offset < 0) ? 0 : $offset;
+    $items = array_slice( $donnees, $offset, $limit); 
+    // var_dump(   $items );die;
 
-                $page = (!empty($_GET['page']) && $_GET['page'] > 0) ? intval($_GET['page']) : 1;
-
-                $limit = 10;
-
-                $totalPages = ceil(count($donnees) / $limit);
-
-                $page = max($page, 1);
-                $page = min($page, $totalPages);
-
-                $offset = ($page - 1) * $limit;
-                $offset = ($offset < 0) ? 0 : $offset;
-
-                $items = array_slice( $donnees, $offset, $limit);
-
-            // Chargement de la vue
             require_once(DOSSIER_TEMPLATES."user".DIRECTORY_SEPARATOR."Liste.joueurs.html.php");
             $contenu_vues=ob_get_clean();
             require_once(DOSSIER_TEMPLATES."user".DIRECTORY_SEPARATOR."accueil.html.php");
@@ -104,7 +104,6 @@ require_once(DOSSIER_SRC."models".DIRECTORY_SEPARATOR."user.model.php" );
 
 
         // ***********************
-
 
         function jeu(){
             // chargement temporaire du contenu d'un fichier
@@ -138,3 +137,40 @@ require_once(DOSSIER_SRC."models".DIRECTORY_SEPARATOR."user.model.php" );
             require_once(DOSSIER_TEMPLATES."user".DIRECTORY_SEPARATOR."accueil.html.php");
 
         }
+
+// $donnees=listeDesUtilisateurs("PROFIL_JOUEUR");   
+
+//     function pagination(array $tabDonnees){
+//     $page = (!empty($_GET['page']) && $_GET['page'] > 0) ? intval($_GET['page']) : 1;
+//     $limit = 5;
+//     $totalPages = ceil(count($tabDonnees) / $limit);
+//     // define("MIN","MAX");
+//     $page = max($page, 1);
+//     $page = min($page, $totalPages);
+//     // **************************************
+//     $offset = ($page - 1) * $limit;
+//     $offset = ($offset < 0) ? 0 : $offset;
+
+   
+//     // var_dump( $page);die;
+//     // *************************************
+//     $items = array_slice( $tabDonnees, $offset, $limit);
+//   return $items;
+
+// }
+
+function pagination($tabDonnees):array{
+    $page = (!empty($_GET['page']) && $_GET['page'] > 0) ? intval($_GET['page']) : 1;
+    $limit = 5;
+    $totalPages = ceil(count($tabDonnees) / $limit);
+    // define("MIN","MAX");
+    $page = max($page, 1);
+    $page = min($page, $totalPages);
+    $offset = ($page - 1) * $limit;
+    $offset = ($offset < 0) ? 0 : $offset;
+    $items = array_slice($tabDonnees, $offset, $limit); 
+    return   $items;
+}
+
+
+
