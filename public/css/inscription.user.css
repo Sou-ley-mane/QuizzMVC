@@ -1,3 +1,7 @@
+*{
+    box-sizing: border-box;
+    /* overflow: hidden; */
+}
 .title h3 {
     color: rgb(112, 112, 42);
     margin: 0;
@@ -9,57 +13,47 @@
 }
 
 .title {
+    padding-bottom: 1em;
     border-bottom: 2px solid rgb(112, 112, 42);
-    /* margin: 2em; */
+    margin-top: 5px;
+    width: 90%;
 }
 
 .inscrire {
     display: flex;
-    /* border: 3px solid red; */
-    height: 100vh;
-    justify-content: space-evenly;
+    height: 68vh;
+    /* justify-content: space-evenly; */
     /* margin: 2em; */
-    width: 70%;
+    width: 68%;
     margin-left: 15%;
     background-color: white;
+    box-sizing: border-box;
     /* padding-bottom: 2em; */
+}
+.div-inscrire{
+    width: 100%;
+    height: auto;
 }
 
 .title-form {
     /* border: 2px solid teal; */
     width: 60%;
     height: 45vw;
+    margin-left: 15%;
 }
 
 .identifiant {
-    /* border: 2px solid rebeccapurple; */
-    width: 30%;
-    color: transparent;
-    transition: all .3s ease;
-    /* @include object-center;
-    position: relative;
-    transition: all .3s ease; */
+    margin-right: -9em;
+    width: 40%;
+    text-align: center;
 }
 
 #utlisateurs {
-    /* background-color: aqua; */
-    /* background-image: url('../img/img-bg.jpg'); */
-    background-size: cover;
-    /* padding-bottom: 3em; */
-    height: 75vh;
+    width: 100%;
+    height: auto;
+    /* margin-top: 7em; */
+    padding: 0;
 }
-
-
-/* 
-input {
-    border: 2px solid rebeccapurple;
-} */
-
-
-/* .form {
-    margin: 2em;
-} */
-
 .logo-inscrit {
     display: flex;
     height: 18vh;
@@ -72,18 +66,21 @@ input {
 
 .identifiant h3 {
     text-align: center;
+    margin-left: 5em;
 }
 
 input {
-    border: 2px solid rgb(196, 198, 209);
+    border: 1px solid rgb(196, 198, 209);
+    height: 5vh;
     /* font-size: 3em; */
 }
 
 .fichier {
-    margin: 0em;
+    margin-top: -1.5em;
     display: flex;
     justify-content: space-between;
-    border: 2px solid red;
+    /* border: 2px solid red; */
+    height: 6vh;
     width: 100%;
 }
 
@@ -91,6 +88,8 @@ button {
     /* padding: 0em 2em 0em 2em; */
     width: 15vw;
     height: auto;
+    /* border: none; */
+    /* font-size: 1.5em; */
 }
 
 .connect-inscrit {
@@ -99,22 +98,19 @@ button {
     align-items: center;
 }
 
+#password,
+#password2{
+    border: none;
 
-/* #validation {
-    /* background-color: brown; */
+}
+:hover #password,
+#password2{
+    border: solid #0eced4;
 
-
-/* padding: 1em 2em 1em 2em; */
-
-
-/* ***************************Creer question */
-
-#mor {
+}
+.form{
+    width: 100%;
     display: flex;
-    /* flex-direction: row-reverse; */
-    flex-direction: column;
+    justify-content: space-between;
 }
 
-#mor h3 {
-    margin-left: 35%;
-}
